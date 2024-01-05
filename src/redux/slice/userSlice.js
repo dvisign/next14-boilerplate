@@ -10,9 +10,17 @@ const userReducer = createSlice({
   initialState,
   reducers: {
     updateUser(state, action) {
-      const { name, id } = action.payload
-      state.name = name
-      state.id = id
+      const { id, password } = action.payload
+      if (id === "test" && password === "1234") {
+        state.id = "test"
+        state.name = "정문채"
+      } else {
+        alert("틀려 임마")
+      }
+    },
+    resetUser(state) {
+      state.id = ""
+      state.name = ""
     },
   },
 })
