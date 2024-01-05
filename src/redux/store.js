@@ -1,12 +1,27 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE } from "redux-persist"
-import storage from "redux-persist/lib/storage"
 import userReducer from "@/redux/slice/userSlice"
+import createWebStorage from "redux-persist/lib/storage/createWebStorage"
+
+const createNoopStorage = () => {
+  return {
+    getItem(_key) {
+      return Promise.resolve(null)
+    },
+    setItem(_key, value) {
+      return Promise.resolve(value)
+    },
+    removeItem(_key) {
+      return Promise.resolve()
+    },
+  }
+}
+
+const storage = typeof window === "undefined" ? createNoopStorage() : createWebStorage("local")
 
 const persistConfig = {
   key: "root",
-  storage: storage,
-  whitelist: [userReducer],
+  storage,
 }
 
 const rootReducer = combineReducers({ user: userReducer })
