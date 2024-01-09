@@ -1,27 +1,54 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+import axios from "axios"
 
 const initialState = {
+  loading: false,
   name: "",
   id: "",
 }
 
+export const requestLogin = createAsyncThunk("user/login", async (action) => {
+  return axios.post("/api/user", {
+    ...action,
+  })
+})
+export const requestLogout = createAsyncThunk("user/logout", async (action) => {
+  return axios.get("/api/user/logout")
+})
+
 const userReducer = createSlice({
   name: "user",
   initialState,
-  reducers: {
-    updateUser(state, action) {
-      const { id, password } = action.payload
-      if (id === "test" && password === "1234") {
-        state.id = "test"
-        state.name = "정문채"
-      } else {
-        alert("틀려 임마")
-      }
-    },
-    resetUser(state) {
-      state.id = ""
-      state.name = ""
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(requestLogin.pending, (state) => {
+        state.loading = true
+      })
+      .addCase(requestLogin.fulfilled, (state, action) => {
+        const { payload } = action
+        state.loading = false
+        state.name = payload.data.name
+        state.id = payload.data.id
+      })
+      .addCase(requestLogin.rejected, (state, action) => {
+        state.loading = false
+        alert(action?.data?.reason || "알 수 없는 오류가 발생 하였습니다.")
+      })
+      .addCase(requestLogout.pending, (state) => {
+        console.log("logout")
+      })
+      .addCase(requestLogout.fulfilled, (state, action) => {
+        const { payload } = action
+        state.id = ""
+        state.name = ""
+        if (payload.data.staus) {
+          alert(payload.data.message)
+        }
+      })
+      .addCase(requestLogout.rejected, (state, action) => {
+        console.log("error")
+      })
   },
 })
 

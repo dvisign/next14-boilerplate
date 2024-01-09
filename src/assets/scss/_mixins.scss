@@ -1,0 +1,283 @@
+
+@import 'variables';
+
+// Mixin
+@mixin rel {
+  position: relative;
+}
+
+@mixin abs {
+  position: absolute;
+}
+
+@mixin fixed {
+  position: fixed;
+}
+
+@mixin center-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin flex-col {
+  flex-direction: column;
+}
+
+@mixin bg($color: white) {
+  background-color: $color;
+}
+
+@mixin border($color: w100, $position: all, $width: 1px) {
+  @if $position == all or $position == '' {
+    border-style: solid;
+    border-color: color($color);
+    border-width: $width;
+  } @else {
+    border-#{ $position }-style: solid;
+    border-#{ $position }-color: color($color);
+    border-#{ $position }-width: $width;
+  }
+}
+
+@mixin layer($p: absolute, $i: auto, $t: auto, $l: auto, $r: auto, $b: auto) {
+  position: $p;
+  z-index: $i;
+  left: $l;
+  right: $r;
+  top: $t;
+  bottom: $b;
+}
+
+@mixin flex($h: flex-start, $v: stretch, $w: nowrap, $a: flex-start) {
+  display: flex;
+  justify-content: $h;
+  align-items: $v;
+  flex-wrap: $w;
+  align-content: $a;
+}
+
+@mixin back-img($url, $size, $repeat, $positionX, $positionY) {
+  background-image: url($url);
+  background-size: $size;
+  background-repeat: $repeat;
+  background-position: $positionX $positionY;
+}
+
+/* 박스 정렬 */
+@mixin center-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+@mixin center-box-x {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+@mixin center-box-y {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin ellipsis($lines: 1) {
+  @if ($lines==1) {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  } @else {
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+  }
+}
+
+@mixin blind {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  white-space: nowrap;
+  clip: rect(0, 0, 0, 0);
+}
+
+// 반응형
+@mixin XS {
+  @media screen and (min-width: size(xs)) {
+    @content;
+  }
+}
+
+@mixin SM {
+  @media screen and (min-width: size(sm)) {
+    @content;
+  }
+}
+
+@mixin MD {
+  @media screen and (min-width: size(md)) {
+    @content;
+  }
+}
+
+@mixin LG {
+  @media screen and (min-width: size(lg)) {
+    @content;
+  }
+}
+
+@mixin XL {
+  @media screen and (min-width: size(xl)) {
+    @content;
+  }
+}
+
+// Theme
+@mixin themed() {
+  @each $theme, $map in $themes {
+    .theme--#{ $theme } & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{ $key }');
+        $theme-map: map-merge(
+            $theme-map,
+            (
+              $key: $value,
+            )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function t($key) {
+  @return map-get($theme-map, $key);
+}
+
+@function transform-number-to-string($value) {
+  @if type-of($value)=='number' {
+    @return #{$value};
+  }
+  @else if type-of($value)=='string' {
+    @return $value;
+  }
+  @else {
+    @error 'Input #{$value} is no number or string';
+  }
+}
+
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
+}
+
+
+// Margin Generator
+@mixin ml-a($l: auto, $t: auto, $b: auto, $r: auto) {
+  margin: $t $r $b $l;
+}
+
+@mixin attr-x($attr, $attr-prop, $attr-count: 10, $attr-steps: 10, $unit: '%') {
+  $attr-list: null;
+  @for $i from 1 through $attr-count {
+    $attr-value: $attr-steps * $i;
+    $attr-name: str-replace(transform-number-to-string($attr-value), '.', '');
+
+    .#{$attr}#{$attr-name} {
+      #{$attr-prop}: #{$attr-value}#{$unit !important};
+    }
+
+    $attr-list: append($attr-list, unquote(".#{$attr}-#{$attr-name}"), comma);
+  }
+
+  #{$attr-list} {
+    // 공통 추가 내용
+  }
+}
+
+@mixin txt-x {
+  $color-list: null;
+  @each $name in map-keys($color-value) {
+    .txt-#{$name} {
+      color: map-get($color-value, $name);
+    }
+    $color-list: append($color-list, unquote(".color-#{$name}"), comma);
+  }
+}
+
+@mixin bg-x {
+  $color-list: null;
+  @each $name in map-keys($color-value) {
+    .bg-#{$name} {
+      background-color: map-get($color-value, $name);
+    }
+    $color-list: append($color-list, unquote(".color-#{$name}"), comma);
+  }
+}
+
+.flex {
+  display: flex;
+
+  $justify-positions: (
+    start: flex-start,
+    end: flex-end,
+    center: center,
+    around: space-around,
+    between: space-between,
+    evenly: space-evenly
+  );
+
+  $align-positions: (
+    start: flex-start,
+    end: flex-end,
+    center: center,
+    stretch: stretch,
+    baseline: baseline
+  );
+
+  $grow-values: (
+    1: 1,
+    0: 0,
+  );
+
+  $shrink-values: (
+    1: 1,
+    0: 0,
+  );
+
+  $wrap-values: (
+    1: wrap,
+    0: nowrap,
+  );
+
+  @mixin make-props($name ,$prop, $arr) {
+    @each $mod, $dir in $arr {
+      &--#{$name}-#{$mod} {
+        #{$prop}: #{$dir};
+      }
+    }
+  }
+
+  @include make-props('align','align-items', $align-positions);
+  @include make-props('justify','justify-content', $justify-positions);
+  @include make-props('grow','flex-grow', $grow-values);
+  @include make-props('shrink','flex-shrink', $shrink-values);
+  @include make-props('wrap','flex-wrap', $wrap-values);
+
+  &--col {
+    flex-direction: column;
+  }
+}

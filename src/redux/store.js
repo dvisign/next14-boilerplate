@@ -34,9 +34,10 @@ export const store = configureStore({
   devTools: process.env.NODE_ENV !== "production", // redux devtools 개발 환경에서만 활성화
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
+      serializableCheck: false,
+      // serializableCheck: {
+      //   ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      // },
     }).concat(middlewares),
 })
 

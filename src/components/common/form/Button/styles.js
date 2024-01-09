@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 
 export const ButtonStyles = styled.button`
-  display: "block";
+  display: block;
   width: 100px;
   padding: 5px 10px;
   border: 1px solid #ccc;
