@@ -1,4 +1,5 @@
 import { styled } from "@mui/system"
+
 export const ButtonStyles = styled("button")`
   display: block;
   width: 100px;

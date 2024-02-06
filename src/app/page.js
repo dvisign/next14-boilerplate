@@ -3,9 +3,8 @@ import { useCallback, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { useRouter } from "next/navigation"
 import { userInfoAction, requestLogin } from "@/redux/slice/userSlice"
-import TextInput from "@/components/common/form/TextInput"
-import Button from "@/components/common/form/Button"
-import LoadingDialog from "@/components/common/dialog/LoadingDialog"
+import TextInput from "@/components/atoms/TextInput"
+import Button from "@/components/atoms/Button"
 import { LoginFormLayoutStyles } from "@/components/styles/login"
 import { useInput } from "@/hooks"
 
@@ -39,11 +38,13 @@ function Login() {
             <TextInput value={password} setValue={onChangePassword} type="password" />
           </div>
           <div>
-            <Button className="test" buttonText={"submit"} onClick={() => onSubmit()} />
+            <Button onClick={() => onSubmit()}>
+              {/* <Button.Icon name="🔍" /> */}
+              <Button.Text>submit</Button.Text>
+            </Button>
           </div>
         </div>
       </LoginFormLayoutStyles>
-      {user.loading && <LoadingDialog />}
     </>
   )
 }
