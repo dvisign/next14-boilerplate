@@ -39,7 +39,7 @@ function Login() {
             <TextInput value={password} setValue={onChangePassword} type="password" />
           </div>
           <div>
-            <Button buttonText={"submit"} onClick={onSubmit} />
+            <Button className="test" buttonText={"submit"} onClick={() => onSubmit()} />
           </div>
         </div>
       </LoginFormLayoutStyles>

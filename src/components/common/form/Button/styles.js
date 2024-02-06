@@ -1,7 +1,5 @@
-import styled from "@emotion/styled"
-import { Button } from "@mui/material"
-
-export const ButtonStyles = styled(Button)`
+import { styled } from "@mui/system"
+export const ButtonStyles = styled("button")`
   display: block;
   width: 100px;
   padding: 5px 10px;
