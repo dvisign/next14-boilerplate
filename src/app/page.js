@@ -4,11 +4,13 @@ import { useSelector, useDispatch } from "react-redux"
 import { useRouter } from "next/navigation"
 import { userInfoAction, requestLogin } from "@/redux/slice/userSlice"
 import TextInput from "@/components/atoms/TextInput"
-import Button from "@/components/atoms/Button"
+import Button from "@/components/atoms/Buttons"
 import { LoginFormLayoutStyles } from "@/components/styles/login"
 import { useInput } from "@/hooks"
+import theme from "@/assets/scss/_color.module.scss"
 
 function Login() {
+  console.log(theme)
   const [id, setId] = useInput("")
   const [password, setPassword] = useInput("")
   const router = useRouter()

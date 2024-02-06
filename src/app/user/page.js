@@ -1,7 +1,7 @@
 "use client"
 import { useSelector, useDispatch } from "react-redux"
 import { requestLogout } from "@/redux/slice/userSlice"
-import Button from "@/components/atoms/Button"
+import Button from "@/components/atoms/Buttons"
 
 function User() {
   const dispatch = useDispatch()

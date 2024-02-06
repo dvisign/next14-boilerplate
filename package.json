@@ -29,5 +29,11 @@
     "redux": "^5.0.1",
     "redux-persist": "^6.0.0",
     "sass": "^1.69.7"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0",
+    "eslint-plugin-react": "^7.33.2",
+    "install": "^0.13.0",
+    "npm": "^10.4.0"
   }
 }
