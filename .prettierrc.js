@@ -1,9 +1,12 @@
 module.exports = {
-  printWidth: 120,
-  useTabs: false,
+  printWidth: 80,
   tabWidth: 2,
+  useTabs: false,
   semi: false,
   singleQuote: false,
+  trailingComma: 'none',
   bracketSpacing: true,
-  endOfLine: "lf",
+  jsxBracketSameLine: true,
+  arrowParens: 'avoid',
+  endOfLine: 'lf'
 }

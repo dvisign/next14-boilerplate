@@ -15,14 +15,14 @@ function Login() {
   const [password, setPassword] = useInput("")
   const router = useRouter()
   const dispatch = useDispatch()
-  const onChangeId = useCallback((val) => setId(val), [id])
-  const onChangePassword = useCallback((val) => setPassword(val), [password])
-  const user = useSelector((state) => state.user)
+  const onChangeId = useCallback(val => setId(val), [id])
+  const onChangePassword = useCallback(val => setPassword(val), [password])
+  const user = useSelector(state => state.user)
   const onSubmit = useCallback(() => {
     dispatch(
       requestLogin({
         id,
-        password,
+        password
       })
     )
   }, [id, password])
@@ -34,10 +34,30 @@ function Login() {
       <LoginFormLayoutStyles>
         <div>
           <div>
-            <TextInput value={id} setValue={onChangeId} type="text" />
+            {/* <TextInput value={id} setValue={onChangeId} type="text" /> */}
+            <TextInput>
+              <TextInput.Label>Username</TextInput.Label>
+              <TextInput.Icon icon="👤" />
+              <TextInput.Field
+                type="text"
+                value={id}
+                onChange={e => setId(e.target.value)}
+                placeholder="Enter your username"
+              />
+            </TextInput>
           </div>
           <div>
-            <TextInput value={password} setValue={onChangePassword} type="password" />
+            {/* <TextInput value={password} setValue={onChangePassword} type="password" /> */}
+            <TextInput>
+              <TextInput.Label>Username</TextInput.Label>
+              <TextInput.Icon icon="👤" />
+              <TextInput.Field
+                type="password"
+                value={password}
+                onChange={e => setPassword(e.target.value)}
+                placeholder="Enter your password"
+              />
+            </TextInput>
           </div>
           <div>
             {/* <Button onClick={() => onSubmit()}>
@@ -46,8 +66,12 @@ function Login() {
             </Button> */}
             <Button onClick={() => onSubmit()}>Default Button</Button>
             <Button.Round onClick={() => onSubmit()}>Round Button</Button.Round>
-            <Button.Outline onClick={() => onSubmit()}>Outline Button</Button.Outline>
-            <Button.OutlineRound onClick={() => onSubmit()}>OutlineRound Button</Button.OutlineRound>
+            <Button.Outline onClick={() => onSubmit()}>
+              Outline Button
+            </Button.Outline>
+            <Button.OutlineRound onClick={() => onSubmit()}>
+              OutlineRound Button
+            </Button.OutlineRound>
           </div>
         </div>
       </LoginFormLayoutStyles>

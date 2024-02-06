@@ -1,4 +1,9 @@
-import { ButtonBase, RoundButtonStyle, OutlineButtonStyle, OutlineRoundStyle } from "./styles"
+import {
+  ButtonBase,
+  RoundButtonStyle,
+  OutlineButtonStyle,
+  OutlineRoundStyle
+} from "./styles"
 
 // 기본 버튼
 const Button = ({ children, ...props }) => {
