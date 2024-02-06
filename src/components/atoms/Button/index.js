@@ -1,4 +1,4 @@
-import { ButtonBase, RoundButtonStyle, OutlineButtonStyle } from "./styles"
+import { ButtonBase, RoundButtonStyle, OutlineButtonStyle, OutlineRoundStyle } from "./styles"
 
 // 기본 버튼
 const Button = ({ children, ...props }) => {
@@ -14,5 +14,8 @@ Button.Round = ({ children, ...props }) => {
 Button.Outline = ({ children, ...props }) => {
   return <OutlineButtonStyle {...props}>{children}</OutlineButtonStyle>
 }
-
+// 아웃라인 라운드 버튼
+Button.OutlineRound = ({ children, ...props }) => {
+  return <OutlineRoundStyle {...props}>{children}</OutlineRoundStyle>
+}
 export default Button

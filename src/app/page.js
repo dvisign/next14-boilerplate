@@ -42,9 +42,10 @@ function Login() {
               <Button.Icon name="🔍" />
               <Button.Text>submit</Button.Text>
             </Button> */}
-            <Button>Default Button</Button>
-            <Button.Round>Round Button</Button.Round>
-            <Button.Outline>Outline Button</Button.Outline>
+            <Button onClick={() => onSubmit()}>Default Button</Button>
+            <Button.Round onClick={() => onSubmit()}>Round Button</Button.Round>
+            <Button.Outline onClick={() => onSubmit()}>Outline Button</Button.Outline>
+            <Button.OutlineRound onClick={() => onSubmit()}>OutlineRound Button</Button.OutlineRound>
           </div>
         </div>
       </LoginFormLayoutStyles>
