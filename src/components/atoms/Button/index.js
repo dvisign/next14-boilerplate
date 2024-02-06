@@ -1,17 +1,18 @@
-"use client"
-import { ButtonStyles } from "./styles"
-import { useButton } from "@mui/base/useButton"
+import { ButtonBase, RoundButtonStyle, OutlineButtonStyle } from "./styles"
 
-const Button = ({ children, onClick, ...props }) => (
-  <ButtonStyles type="button" onClick={onClick} {...props}>
-    {children}
-  </ButtonStyles>
-)
+// 기본 버튼
+const Button = ({ children, ...props }) => {
+  return <ButtonBase {...props}>{children}</ButtonBase>
+}
 
-// Button 컴포넌트 내부의 Icon 컴포넌트
-Button.Icon = ({ name }) => name && <span>{name}</span>
+// 라운드 버튼
+Button.Round = ({ children, ...props }) => {
+  return <RoundButtonStyle {...props}>{children}</RoundButtonStyle>
+}
 
-// Button 컴포넌트 내부의 Text 컴포넌트
-Button.Text = ({ children }) => <span>{children}</span>
+// 아웃라인 버튼
+Button.Outline = ({ children, ...props }) => {
+  return <OutlineButtonStyle {...props}>{children}</OutlineButtonStyle>
+}
 
 export default Button

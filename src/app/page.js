@@ -38,10 +38,13 @@ function Login() {
             <TextInput value={password} setValue={onChangePassword} type="password" />
           </div>
           <div>
-            <Button onClick={() => onSubmit()}>
-              {/* <Button.Icon name="🔍" /> */}
+            {/* <Button onClick={() => onSubmit()}>
+              <Button.Icon name="🔍" />
               <Button.Text>submit</Button.Text>
-            </Button>
+            </Button> */}
+            <Button>Default Button</Button>
+            <Button.Round>Round Button</Button.Round>
+            <Button.Outline>Outline Button</Button.Outline>
           </div>
         </div>
       </LoginFormLayoutStyles>
