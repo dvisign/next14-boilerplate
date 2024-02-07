@@ -1,22 +1,3 @@
-//{
-//  "parserOptions": {
-//    "ecmaVersion": 2020,
-//    "sourceType": "module",
-//    "ecmaFeatures": {
-//      "jsx": true
-//    }
-//  },
-//  "extends": [
-//    "next",
-//    "next/core-web-vitals",
-//    "eslint-plugin-prettier",
-//    "plugin:prettier/recommended"
-//  ],
-//  "rules": {
-//    "react/react-in-jsx-scope": "off",
-//    "react/prop-types": "off"
-//  }
-//}
 {
   "env": {
     "browser": true,
