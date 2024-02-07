@@ -38,10 +38,10 @@ function Login() {
             <TextInput>
               <TextInput.Label>Username</TextInput.Label>
               <TextInput.Icon icon="👤" />
-              <TextInput.Field
+              <TextInput.RoundField
                 type="text"
                 value={id}
-                onChange={e => setId(e.target.value)}
+                onChange={onChangeId}
                 placeholder="Enter your username"
               />
             </TextInput>
@@ -51,10 +51,10 @@ function Login() {
             <TextInput>
               <TextInput.Label>Username</TextInput.Label>
               <TextInput.Icon icon="👤" />
-              <TextInput.Field
+              <TextInput.RoundField
                 type="password"
                 value={password}
-                onChange={e => setPassword(e.target.value)}
+                onChange={onChangePassword}
                 placeholder="Enter your password"
               />
             </TextInput>

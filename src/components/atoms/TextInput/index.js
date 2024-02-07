@@ -25,18 +25,17 @@ TextInput.Field = memo(({ type = "text", value, onChange }) => {
       size="small"
       type={type}
       value={value}
-      onChange={onChange}
+      onChange={e => onChange(e.target.value)}
     />
   )
 })
 // 라운드 입력 필드
-TextInput.RoundField = memo(({ type = "text" }) => {
-  const { value, setValue } = useContext(TextInputContext)
+TextInput.RoundField = memo(({ type = "text", value, onChange }) => {
   return (
     <RoundInputStyle
       type={type}
       value={value}
-      onChange={e => setValue(e.target.value)}
+      onChange={e => onChange(e.target.value)}
     />
   )
 })
