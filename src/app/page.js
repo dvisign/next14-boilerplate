@@ -2,16 +2,16 @@
 import { useCallback, useEffect } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { useRouter } from "next/navigation"
-import { userInfoAction, requestLogin } from "@/redux/slice/userSlice"
-import TextInput from "@/components/atoms/TextInput"
+import { requestLogin } from "@/redux/slice/userSlice"
+import MoleTextInput from "@/molecules/MoleTextInput"
 import Button from "@/components/atoms/Buttons"
 import { LoginFormLayoutStyles } from "@/components/styles/login"
 import { useInput } from "@/hooks"
 import { UserIcon, LockPasswordIcon } from "@/components/atoms/Icons"
-import theme from "@/assets/scss/_color.module.scss"
+// import color from "@/assets/scss/_color.module.scss"
 
 function Login() {
-  console.log(theme)
+  // console.log(color)
   const [id, setId] = useInput("")
   const [password, setPassword] = useInput("")
   const router = useRouter()
@@ -35,10 +35,17 @@ function Login() {
       <LoginFormLayoutStyles>
         <div>
           <div>
-            <TextInput.RoundField id="testId" value={id} onChange={onChangeId} type="text" label={"아이디"} icons={<UserIcon />} />
+            <MoleTextInput
+              id="testId"
+              value={id}
+              onChange={onChangeId}
+              type="text"
+              label={"아이디"}
+              icons={<UserIcon />}
+            />
           </div>
           <div>
-            <TextInput
+            <MoleTextInput
               className="test2"
               value={password}
               onChange={onChangePassword}
