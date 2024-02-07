@@ -50,7 +50,7 @@
     "no-redeclare": "warn",
     "react/display-name": "off",
     "react/jsx-key": "warn",
-    "arrow-body-style": ["error", "always"],
+    "arrow-body-style": "off",
     "react/self-closing-comp": ["error", { "component": true, "html": true }],
     "autofix/no-unused-vars": [
       "warn",

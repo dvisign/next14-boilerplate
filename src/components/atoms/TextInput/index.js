@@ -17,7 +17,7 @@ const TextInputTemplate = memo(props => {
 
 // 입력 필드
 const TextInput = memo(
-  (props) => {
+  props => {
     const { type = "text", value, onChange, label, icons } = props
     return (
       <TextInputTemplate label={label} icons={icons} {...props}>
@@ -31,7 +31,7 @@ const TextInput = memo(
 )
 // 라운드 입력 필드
 TextInput.RoundField = memo(
-  (props) => {
+  props => {
     const { type = "text", value, onChange, label, icons } = props
     return (
       <TextInputTemplate label={label} icons={icons} {...props}>
