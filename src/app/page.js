@@ -35,10 +35,10 @@ function Login() {
       <LoginFormLayoutStyles>
         <div>
           <div>
-            <TextInput.RoundField value={id} onChange={onChangeId} type="text" label={"아이디"} icons={<UserIcon />} />
+            <TextInput.RoundField id="testId" value={id} onChange={onChangeId} type="text" label={"아이디"} icons={<UserIcon />} />
           </div>
           <div>
-            <TextInput.RoundField
+            <TextInput
               className="test2"
               value={password}
               onChange={onChangePassword}

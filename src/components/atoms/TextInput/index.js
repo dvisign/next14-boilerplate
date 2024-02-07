@@ -1,12 +1,11 @@
 import React, { memo } from "react"
 import { TemplateStyle, TemplateInputStyle, InputBaseStyle, RoundInputStyle, LabelStyle, IconStyle } from "./styles"
 
-
 // 필드 전체 레이아웃
 const TextInputTemplate = memo(props => {
-  const { children, label, icons } = props
+  const { children, label, icons, className, id } = props
   return (
-    <TemplateStyle {...props}>
+    <TemplateStyle className={className} id={id}>
       {label && <LabelStyle>{label}</LabelStyle>}
       <TemplateInputStyle icons={icons} label={label}>
         {icons && <IconStyle>{icons}</IconStyle>}
@@ -18,10 +17,10 @@ const TextInputTemplate = memo(props => {
 
 // 입력 필드
 const TextInput = memo(
-  props => {
-    const { type = "text", value, onChange, label } = props
+  (props) => {
+    const { type = "text", value, onChange, label, icons } = props
     return (
-      <TextInputTemplate label={label} {...props}>
+      <TextInputTemplate label={label} icons={icons} {...props}>
         <InputBaseStyle type={type} value={value} onChange={e => onChange(e.target.value)} />
       </TextInputTemplate>
     )
@@ -32,10 +31,10 @@ const TextInput = memo(
 )
 // 라운드 입력 필드
 TextInput.RoundField = memo(
-  props => {
-    const { type = "text", value, onChange, label } = props
+  (props) => {
+    const { type = "text", value, onChange, label, icons } = props
     return (
-      <TextInputTemplate label={label} {...props}>
+      <TextInputTemplate label={label} icons={icons} {...props}>
         <RoundInputStyle type={type} value={value} onChange={e => onChange(e.target.value)} />
       </TextInputTemplate>
     )
