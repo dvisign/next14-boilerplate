@@ -1,4 +1,4 @@
-import { styled, alpha } from "@mui/system"
+import { styled } from "@mui/system"
 
 export const ButtonBase = styled("button")`
   padding: 8px 16px;
