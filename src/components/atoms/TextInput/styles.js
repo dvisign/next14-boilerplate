@@ -1,29 +1,23 @@
 import styled from "@emotion/styled"
+
 // 기본 입력 필드 스타일
 export const InputBaseStyle = styled("input")`
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 16px;
+  border: 0;
+  display: block;
   width: 100%;
-  box-sizing: border-box;
-  &:focus {
-    border-color: #0265dc;
-    outline: none;
-  }
 `
 
 // 라운드 입력 필드 스타일
-export const RoundInputStyle = styled(InputBaseStyle)`
-  border-radius: 20px;
-`
+export const RoundInputStyle = styled(InputBaseStyle)``
 
 // 라벨 스타일
 export const LabelStyle = styled.label`
-  display: block;
+  display: flex;
   font-size: 14px;
   color: #333;
-  margin-bottom: 5px;
+  width: fit-content;
+  min-width: 60px;
+  align-items: center;
 `
 
 // 아이콘 스타일
@@ -34,4 +28,25 @@ export const IconStyle = styled.span`
   transform: translateY(-50%);
   font-size: 18px;
   color: #666;
+`
+
+// 인풋 레이아웃 스타일
+export const TemplateStyle = styled("div")`
+  display: flex;
+  position: relative;
+  gap: 10px;
+  aligin-items: center;
+`
+// 인풋 레이아웃 스타일
+export const TemplateInputStyle = styled("div")`
+  display: flex;
+  position: relative;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: ${({ icons }) => (icons ? "40px" : "12px")};
+  border-radius: ${({ round }) => (round ? "50%" : "0")};
 `

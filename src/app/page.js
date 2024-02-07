@@ -7,6 +7,7 @@ import TextInput from "@/components/atoms/TextInput"
 import Button from "@/components/atoms/Buttons"
 import { LoginFormLayoutStyles } from "@/components/styles/login"
 import { useInput } from "@/hooks"
+import { UserIcon, LockPasswordIcon } from "@/components/atoms/Icons"
 import theme from "@/assets/scss/_color.module.scss"
 
 function Login() {
@@ -34,30 +35,22 @@ function Login() {
       <LoginFormLayoutStyles>
         <div>
           <div>
-            {/* <TextInput value={id} setValue={onChangeId} type="text" /> */}
-            <TextInput>
-              <TextInput.Label>Username</TextInput.Label>
-              <TextInput.Icon icon="👤" />
-              <TextInput.RoundField
-                type="text"
-                value={id}
-                onChange={onChangeId}
-                placeholder="Enter your username"
-              />
-            </TextInput>
+            <TextInput.RoundField
+              value={id}
+              onChange={onChangeId}
+              type="text"
+              label={"아이디"}
+              icons={<UserIcon />}
+            />
           </div>
           <div>
-            {/* <TextInput value={password} setValue={onChangePassword} type="password" /> */}
-            <TextInput>
-              <TextInput.Label>Username</TextInput.Label>
-              <TextInput.Icon icon="👤" />
-              <TextInput.RoundField
-                type="password"
-                value={password}
-                onChange={onChangePassword}
-                placeholder="Enter your password"
-              />
-            </TextInput>
+            <TextInput.RoundField
+              value={password}
+              onChange={onChangePassword}
+              type="password"
+              label={"패스워드"}
+              icons={<LockPasswordIcon />}
+            />
           </div>
           <div>
             {/* <Button onClick={() => onSubmit()}>
