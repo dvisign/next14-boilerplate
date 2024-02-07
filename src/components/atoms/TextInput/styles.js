@@ -22,6 +22,7 @@ export const LabelStyle = styled.label`
 
 // 아이콘 스타일
 export const IconStyle = styled.span`
+  display: block;
   position: absolute;
   left: 10px;
   top: 50%;
@@ -45,6 +46,6 @@ export const TemplateInputStyle = styled("div")`
   font-size: 16px;
   width: 100%;
   box-sizing: border-box;
-  padding: 8px 12px 8px ${ ({ icons }) => (icons ? "40px" : "12px") };
-  border-radius: ${ ({ round }) => (round ? "50%" : "0") };
+  padding: 8px 12px 8px ${({ icons }) => (icons ? "40px" : "12px")};
+  border-radius: ${({ round }) => (round ? "50%" : "0")};
 `

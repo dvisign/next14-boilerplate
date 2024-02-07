@@ -23,8 +23,8 @@ function Login() {
     dispatch(
       requestLogin({
         id,
-        password
-      })
+        password,
+      }),
     )
   }, [id, password])
   useEffect(() => {
@@ -35,16 +35,11 @@ function Login() {
       <LoginFormLayoutStyles>
         <div>
           <div>
-            <TextInput.RoundField
-              value={id}
-              onChange={onChangeId}
-              type="text"
-              label={"아이디"}
-              icons={<UserIcon />}
-            />
+            <TextInput.RoundField value={id} onChange={onChangeId} type="text" label={"아이디"} icons={<UserIcon />} />
           </div>
           <div>
             <TextInput.RoundField
+              className="test2"
               value={password}
               onChange={onChangePassword}
               type="password"
@@ -53,18 +48,10 @@ function Login() {
             />
           </div>
           <div>
-            {/* <Button onClick={() => onSubmit()}>
-              <Button.Icon name="🔍" />
-              <Button.Text>submit</Button.Text>
-            </Button> */}
-            <Button onClick={() => onSubmit()}>Default Button</Button>
-            <Button.Round onClick={() => onSubmit()}>Round Button</Button.Round>
-            <Button.Outline onClick={() => onSubmit()}>
-              Outline Button
-            </Button.Outline>
-            <Button.OutlineRound onClick={() => onSubmit()}>
-              OutlineRound Button
-            </Button.OutlineRound>
+            <Button onClick={() => onSubmit()}>로그인</Button>
+            <Button.Round onClick={() => onSubmit()}>회원가입</Button.Round>
+            <Button.Outline onClick={() => onSubmit()}>Outline Button</Button.Outline>
+            <Button.OutlineRound onClick={() => onSubmit()}>OutlineRound Button</Button.OutlineRound>
           </div>
         </div>
       </LoginFormLayoutStyles>
