@@ -1,11 +1,11 @@
 "use client"
 import { useSelector, useDispatch } from "react-redux"
 import { requestLogout } from "@/redux/slice/userSlice"
-import Button from "@/components/atoms/Buttons"
+import Button from "@/components/atoms/form/Buttons"
 
 function User() {
   const dispatch = useDispatch()
-  const user = useSelector((state) => state.user)
+  const user = useSelector(state => state.user)
   const logout = () => {
     dispatch(requestLogout())
   }
@@ -18,7 +18,7 @@ function User() {
         <p>{user.name}</p>
       </div>
       <div>
-        <Button buttonText={"로그아웃"} onClick={logout} />
+        <Button onClick={() => logout()}>로그아웃</Button>
       </div>
     </>
   )

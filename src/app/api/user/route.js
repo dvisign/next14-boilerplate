@@ -20,7 +20,7 @@ export async function POST(req) {
       {
         status: 200,
         headers: { ...headerList },
-      }
+      },
     )
   } else {
     return NextResponse.json(
@@ -30,7 +30,7 @@ export async function POST(req) {
       {
         status: 404,
         headers: { ...headerList },
-      }
+      },
     )
   }
 }
