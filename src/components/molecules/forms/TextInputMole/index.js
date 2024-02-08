@@ -1,10 +1,10 @@
 import { memo, useCallback } from "react"
-import TextInput from "@/atoms/form/TextInput"
-import Label from "@/atoms/form/Label"
-import { MoleTextWrapperStyle, MoleRoundTextInputStyle, MoleTextInputStyle, IconStyle } from "./style"
+import TextInput from "@/atoms/forms/TextInput"
+import Label from "@/atoms/forms/Label"
+import { TextWrapperMoleStyle, RoundTextInputMoleStyle, TextInputMoleStyle, IconStyle } from "./style"
 
 // 입력 필드
-const MoleTextInput = memo(
+const TextInputMole = memo(
   ({ type = "text", round = false, label, icons, className, id, onChange, value }) => {
     const useOnChange = useCallback(
       val => {
@@ -13,13 +13,13 @@ const MoleTextInput = memo(
       [value],
     )
     return (
-      <MoleTextWrapperStyle className={className} id={id}>
+      <TextWrapperMoleStyle className={className} id={id}>
         <Label label={label} />
-        <MoleTextInputStyle round={round} icons={icons}>
+        <TextInputMoleStyle round={round} icons={icons}>
           {icons && <IconStyle>{icons}</IconStyle>}
           <TextInput type={type} onChange={useOnChange} value={value} />
-        </MoleTextInputStyle>
-      </MoleTextWrapperStyle>
+        </TextInputMoleStyle>
+      </TextWrapperMoleStyle>
     )
   },
   (prevProps, nextProps) => {
@@ -27,7 +27,7 @@ const MoleTextInput = memo(
   },
 )
 // 라운드 필드
-MoleTextInput.RoundInput = memo(
+TextInputMole.RoundInput = memo(
   ({ type = "text", round = false, label, icons, className, id, onChange, value }) => {
     const useOnChange = useCallback(
       val => {
@@ -36,17 +36,17 @@ MoleTextInput.RoundInput = memo(
       [value],
     )
     return (
-      <MoleTextWrapperStyle className={className} id={id}>
+      <TextWrapperMoleStyle className={className} id={id}>
         <Label label={label} />
-        <MoleRoundTextInputStyle round={round} icons={icons}>
+        <RoundTextInputMoleStyle round={round} icons={icons}>
           {icons && <IconStyle>{icons}</IconStyle>}
           <TextInput type={type} onChange={useOnChange} value={value} />
-        </MoleRoundTextInputStyle>
-      </MoleTextWrapperStyle>
+        </RoundTextInputMoleStyle>
+      </TextWrapperMoleStyle>
     )
   },
   (prevProps, nextProps) => {
     return prevProps.value === nextProps.value
   },
 )
-export default MoleTextInput
+export default TextInputMole

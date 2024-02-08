@@ -1,9 +1,9 @@
 import { memo, useCallback } from "react"
-import Button from "@/atoms/form/Buttons"
+import Button from "@/atoms/forms/Buttons"
 import { BaseIconButtonStyle, IconStyle, ButtonIconTextStyle } from "./styles"
 
 // 기본 버튼
-const MoleIconButton = memo(
+const IconButtonMole = memo(
   ({ children, id, className, icon, onClick, type = "submit" }) => {
     return (
       <BaseIconButtonStyle id={id} className={className}>
@@ -18,10 +18,10 @@ const MoleIconButton = memo(
   // (prevProps, nextProps) => prevProps.onClick === nextProps.onClick,
 )
 // 라운드 버튼
-MoleIconButton.Round = memo(() => {})
+IconButtonMole.Round = memo(() => {})
 // 아웃라인 버튼
-MoleIconButton.Outline = memo(() => {})
+IconButtonMole.Outline = memo(() => {})
 // 아웃라인 라운드 버튼
-MoleIconButton.OutlineRound = memo(() => {})
+IconButtonMole.OutlineRound = memo(() => {})
 
-export default MoleIconButton
+export default IconButtonMole

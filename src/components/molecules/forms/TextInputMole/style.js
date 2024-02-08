@@ -1,14 +1,14 @@
 import styled from "@emotion/styled"
 
 // 인풋 레이아웃 스타일
-export const MoleTextWrapperStyle = styled("div")`
+export const TextWrapperMoleStyle = styled("div")`
   display: flex;
   position: relative;
   gap: 10px;
   align-items: center;
 `
 // 입력 필드 레이아웃 스타일
-export const MoleTextInputStyle = styled("div")`
+export const TextInputMoleStyle = styled("div")`
   display: flex;
   position: relative;
   border: 1px solid #ccc;
@@ -19,7 +19,7 @@ export const MoleTextInputStyle = styled("div")`
   border-radius: 0;
 `
 // 라운드 필드 레이아웃 스타일
-export const MoleRoundTextInputStyle = styled("div")`
+export const RoundTextInputMoleStyle = styled("div")`
   display: flex;
   position: relative;
   border: 1px solid #ccc;
