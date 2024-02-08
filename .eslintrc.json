@@ -20,7 +20,7 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": ["react", "prettier", "autofix", "react-hooks", "sort-keys-fix"],
+  "plugins": ["react", "prettier", "autofix", "react-hooks"],
   "rules": {
     "prettier/prettier": ["error"],
     "sort-keys-fix/sort-keys-fix": "warn",
