@@ -2,22 +2,25 @@ import { memo, useCallback } from "react"
 import TextInput from "@/atoms/forms/TextInput"
 import Label from "@/atoms/forms/Label"
 import { TextWrapperMoleStyle, RoundTextInputMoleStyle, TextInputMoleStyle, IconStyle } from "./style"
+import { textInputTyps } from "./types"
 
 // 입력 필드
 const TextInputMole = memo(
-  ({ type = "text", round = false, label, icons, className, id, onChange, value }) => {
-    const useOnChange = useCallback(
-      val => {
-        onChange(val)
-      },
-      [value],
-    )
+  ({
+    type = "text",
+    label = "",
+    icons = null,
+    className = "",
+    id = "",
+    onChange = () => null,
+    value = "",
+  }: textInputTyps) => {
     return (
       <TextWrapperMoleStyle className={className} id={id}>
         <Label label={label} />
-        <TextInputMoleStyle round={round} icons={icons}>
+        <TextInputMoleStyle icons={icons ? true : false}>
           {icons && <IconStyle>{icons}</IconStyle>}
-          <TextInput type={type} onChange={useOnChange} value={value} />
+          <TextInput type={type} onChange={onChange} value={value} />
         </TextInputMoleStyle>
       </TextWrapperMoleStyle>
     )
@@ -27,26 +30,20 @@ const TextInputMole = memo(
   },
 )
 // 라운드 필드
-TextInputMole.RoundInput = memo(
-  ({ type = "text", round = false, label, icons, className, id, onChange, value }) => {
-    const useOnChange = useCallback(
-      val => {
-        onChange(val)
-      },
-      [value],
-    )
-    return (
-      <TextWrapperMoleStyle className={className} id={id}>
-        <Label label={label} />
-        <RoundTextInputMoleStyle round={round} icons={icons}>
-          {icons && <IconStyle>{icons}</IconStyle>}
-          <TextInput type={type} onChange={useOnChange} value={value} />
-        </RoundTextInputMoleStyle>
-      </TextWrapperMoleStyle>
-    )
-  },
-  (prevProps, nextProps) => {
-    return prevProps.value === nextProps.value
-  },
-)
+// TextInputMole.RoundInput = memo(
+//   ({ type = "text", label, icons, className, id, onChange, value }) => {
+//     return (
+//       <TextWrapperMoleStyle className={className} id={id}>
+//         <Label label={label} />
+//         <RoundTextInputMoleStyle round={round} icons={icons ? true : false}>
+//           {icons && <IconStyle>{icons}</IconStyle>}
+//           <TextInput type={type} onChange={onChange} value={value} />
+//         </RoundTextInputMoleStyle>
+//       </TextWrapperMoleStyle>
+//     )
+//   },
+//   (prevProps, nextProps) => {
+//     return prevProps.value === nextProps.value
+//   },
+// )
 export default TextInputMole

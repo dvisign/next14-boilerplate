@@ -31,7 +31,8 @@
       "@/templates/*": ["src/components/templates/*"],
       "@/hooks/*": ["src/hooks/*"],
       "@/assets/*": ["src/assets/*"],
-      "@/redux/*": ["src/redux/*"]
+      "@/redux/*": ["src/redux/*"],
+      "@/types/*": ["src/types/*"]
     },
     "plugins": [
       {

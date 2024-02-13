@@ -1,4 +1,5 @@
 import styled from "@emotion/styled"
+import { TextInputMoleStyleProps } from "./types"
 
 // 인풋 레이아웃 스타일
 export const TextWrapperMoleStyle = styled("div")`
@@ -8,7 +9,7 @@ export const TextWrapperMoleStyle = styled("div")`
   align-items: center;
 `
 // 입력 필드 레이아웃 스타일
-export const TextInputMoleStyle = styled("div")`
+export const TextInputMoleStyle = styled("div")<TextInputMoleStyleProps>`
   display: flex;
   position: relative;
   border: 1px solid #ccc;
@@ -19,7 +20,7 @@ export const TextInputMoleStyle = styled("div")`
   border-radius: 0;
 `
 // 라운드 필드 레이아웃 스타일
-export const RoundTextInputMoleStyle = styled("div")`
+export const RoundTextInputMoleStyle = styled("div")<TextInputMoleStyleProps>`
   display: flex;
   position: relative;
   border: 1px solid #ccc;

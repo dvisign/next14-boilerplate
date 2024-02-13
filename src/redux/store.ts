@@ -1,5 +1,7 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit"
 import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE } from "redux-persist"
+import { useDispatch, useSelector } from "react-redux"
+import type { TypedUseSelectorHook } from "react-redux"
 import userReducer from "@/redux/slice/userSlice"
 import createWebStorage from "redux-persist/lib/storage/createWebStorage"
 
@@ -45,3 +47,6 @@ export const store = configureStore({
 export const persistor = persistStore(store)
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
+
+export const useAppDispatch: () => AppDispatch = useDispatch
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector

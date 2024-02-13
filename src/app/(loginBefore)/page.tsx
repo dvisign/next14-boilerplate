@@ -1,23 +1,21 @@
 "use client"
-import { useCallback, useEffect, createContext, useContext, useState } from "react"
-import { useSelector, useDispatch } from "react-redux"
+import { useEffect, createContext, useContext, useCallback } from "react"
 import { useRouter } from "next/navigation"
+import { useInput } from "@/hooks"
+import { useAppSelector, useAppDispatch } from "@/redux/store"
 import { requestLogin } from "@/redux/slice/userSlice"
 import LoginFormOrg from "@/organisms/forms/LoginFormOrg"
-// import color from "@/assets/scss/_color.module.scss"
+import { LoginFormTypes } from "@/organisms/forms/LoginFormOrg/types"
 import "./styles.scss"
 
-const LoginContext = createContext()
+const LoginContext = createContext<LoginFormTypes | null>(null)
 
 function Login() {
-  // console.log(color)
-  const [id, setId] = useState("")
-  const [password, setPassword] = useState("")
+  const [id, onChangeId] = useInput<string>("")
+  const [password, onChangePassword] = useInput<string>("")
   const router = useRouter()
-  const dispatch = useDispatch()
-  const onChangeId = useCallback(val => setId(val), [id])
-  const onChangePassword = useCallback(val => setPassword(val), [password])
-  const user = useSelector(state => state.user)
+  const dispatch = useAppDispatch()
+  const user = useAppSelector(state => state.user)
   const onSubmit = useCallback(
     e => {
       e.preventDefault()
