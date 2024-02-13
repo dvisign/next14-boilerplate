@@ -18,7 +18,7 @@ const RoundInput = memo(
     return (
       <TextWrapperMoleStyle className={className} id={id}>
         <Label label={label} />
-        <RoundTextInputMoleStyle icons={icons ? true : false}>
+        <RoundTextInputMoleStyle icons={!!icons}>
           {icons && <IconStyle>{icons}</IconStyle>}
           <TextInput type={type} onChange={onChange} value={value} />
         </RoundTextInputMoleStyle>
