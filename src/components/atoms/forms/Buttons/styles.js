@@ -6,6 +6,7 @@ export const ButtonBase = styled("button")`
   background-color: #007bff;
   color: white;
   cursor: pointer;
+  transition: 0.3s;
   &:hover {
     background-color: #0056b3;
   }

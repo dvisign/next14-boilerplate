@@ -31,6 +31,9 @@ const LoginForm = () => {
         </div>
         <div className="form-line submit-btn">
           <IconButtonMole type="submit">로그인</IconButtonMole>
+          <IconButtonMole.Round type="submit">라운드</IconButtonMole.Round>
+          <IconButtonMole.Outline type="submit">아웃라인</IconButtonMole.Outline>
+          <IconButtonMole.OutlineRound type="submit">아웃라인 라운드</IconButtonMole.OutlineRound>
         </div>
       </div>
     </form>

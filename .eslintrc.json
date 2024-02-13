@@ -23,7 +23,6 @@
   "plugins": ["react", "prettier", "autofix", "react-hooks"],
   "rules": {
     "prettier/prettier": ["error"],
-    "sort-keys-fix/sort-keys-fix": "warn",
     "react/react-in-jsx-scope": "off",
     "spaced-comment": "warn",
     "quotes": ["error", "double"],
