@@ -19,14 +19,13 @@ const LoginForm = () => {
           />
         </div>
         <div className="form-line">
-          <TextInputMole
+          <TextInputMole.RoundInput
             className="test2"
             value={password}
             onChange={onChangePassword}
             type="password"
             label={"패스워드"}
             icons={<LockPasswordIcon />}
-            round={true}
           />
         </div>
         <div className="form-line submit-btn" style={{ display: "flex", gap: 10 }}>
