@@ -1,5 +1,7 @@
-import { memo, useCallback } from "react"
+import { memo } from "react"
 import Button from "@/atoms/forms/Buttons"
+import { ButtonNavtiveTypes } from "@/atoms/forms/Buttons/types"
+import { ButtonMoleTypes } from "./types"
 import {
   BaseIconButtonStyle,
   IconStyle,
@@ -9,19 +11,8 @@ import {
   OutlineRoundStyle,
 } from "./styles"
 
-// 기본 버튼
-const IconButtonMole = memo(({ children, id, className, icon, onClick, type = "submit" }) => {
-  return (
-    <BaseIconButtonStyle id={id} className={className}>
-      <Button onClick={onClick} type={type}>
-        {icon && <IconStyle>{icon}</IconStyle>}
-        <ButtonIconTextStyle>{children}</ButtonIconTextStyle>
-      </Button>
-    </BaseIconButtonStyle>
-  )
-})
 // 라운드 버튼
-IconButtonMole.Round = memo(({ children, id, className, icon, onClick, type = "submit" }) => {
+const Round = ({ children, id, className, icon, onClick, type = ButtonNavtiveTypes.SUBMIT }: ButtonMoleTypes) => {
   return (
     <RoundButtonStyle id={id} className={className}>
       <Button onClick={onClick} type={type}>
@@ -30,9 +21,9 @@ IconButtonMole.Round = memo(({ children, id, className, icon, onClick, type = "s
       </Button>
     </RoundButtonStyle>
   )
-})
+}
 // 아웃라인 버튼
-IconButtonMole.Outline = memo(({ children, id, className, icon, onClick, type = "submit" }) => {
+const Outline = ({ children, id, className, icon, onClick, type = ButtonNavtiveTypes.SUBMIT }: ButtonMoleTypes) => {
   return (
     <OutlineButtonStyle id={id} className={className}>
       <Button onClick={onClick} type={type}>
@@ -41,9 +32,16 @@ IconButtonMole.Outline = memo(({ children, id, className, icon, onClick, type = 
       </Button>
     </OutlineButtonStyle>
   )
-})
+}
 // 아웃라인 라운드 버튼
-IconButtonMole.OutlineRound = memo(({ children, id, className, icon, onClick, type = "submit" }) => {
+const OutlineRound = ({
+  children,
+  id,
+  className,
+  icon,
+  onClick,
+  type = ButtonNavtiveTypes.SUBMIT,
+}: ButtonMoleTypes) => {
   return (
     <OutlineRoundStyle id={id} className={className}>
       <Button onClick={onClick} type={type}>
@@ -52,6 +50,40 @@ IconButtonMole.OutlineRound = memo(({ children, id, className, icon, onClick, ty
       </Button>
     </OutlineRoundStyle>
   )
-})
+}
+// 기본 버튼
+const IconButtonMole = ({
+  children,
+  id,
+  className,
+  icon,
+  onClick,
+  type = ButtonNavtiveTypes.SUBMIT,
+}: ButtonMoleTypes) => {
+  return (
+    <BaseIconButtonStyle id={id} className={className}>
+      <Button onClick={onClick} type={type}>
+        {icon && <IconStyle>{icon}</IconStyle>}
+        <ButtonIconTextStyle>{children}</ButtonIconTextStyle>
+      </Button>
+    </BaseIconButtonStyle>
+  )
+}
+IconButtonMole.Round = Round
+IconButtonMole.Outline = Outline
+IconButtonMole.OutlineRound = OutlineRound
 
-export default IconButtonMole
+const MemoIconButtonMole = memo(IconButtonMole)
+
+interface CustomMemoIconButtonMoleType extends React.MemoExoticComponent<(props: ButtonMoleTypes) => JSX.Element> {
+  Round: typeof Round
+  Outline: typeof Outline
+  OutlineRound: typeof OutlineRound
+}
+
+const CustomMemoIconButtonMole = MemoIconButtonMole as unknown as CustomMemoIconButtonMoleType
+CustomMemoIconButtonMole.Round = Round
+CustomMemoIconButtonMole.Outline = Outline
+CustomMemoIconButtonMole.OutlineRound = OutlineRound
+
+export default CustomMemoIconButtonMole

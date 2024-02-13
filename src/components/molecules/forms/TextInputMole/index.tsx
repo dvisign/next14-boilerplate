@@ -2,10 +2,10 @@ import { memo } from "react"
 import TextInput from "@/atoms/forms/TextInput"
 import Label from "@/atoms/forms/Label"
 import { TextWrapperMoleStyle, RoundTextInputMoleStyle, TextInputMoleStyle, IconStyle } from "./style"
-import { textInputTyps } from "./types"
+import { textInputMoleTypes } from "./types"
 
 // 라운드 필드
-const RoundInput = ({ type = "text", label, icons, className, id, onChange, value }: textInputTyps) => {
+const RoundInput = ({ type = "text", label, icons, className, id, onChange, value }: textInputMoleTypes) => {
   return (
     <TextWrapperMoleStyle className={className} id={id}>
       <Label label={label} />
@@ -26,7 +26,7 @@ const TextInputMole = ({
   id = "",
   onChange = () => null,
   value = "",
-}: textInputTyps) => {
+}: textInputMoleTypes) => {
   return (
     <TextWrapperMoleStyle className={className} id={id}>
       <Label label={label} />
@@ -37,11 +37,18 @@ const TextInputMole = ({
     </TextWrapperMoleStyle>
   )
 }
+
 TextInputMole.RoundInput = RoundInput
-const MemoizedTextInputMole = memo(TextInputMole)
-type MemoizedTextInputMoleType = typeof MemoizedTextInputMole & {
+
+const MemoTextInputMole = memo(TextInputMole, (prevProps, nextProps) => {
+  return prevProps.value === nextProps.value
+})
+
+interface CustomMemoTextInputMoleType extends React.MemoExoticComponent<(props: textInputMoleTypes) => JSX.Element> {
   RoundInput: typeof RoundInput
 }
-const TypedMemoizedTextInputMole = MemoizedTextInputMole as MemoizedTextInputMoleType
 
-export default TypedMemoizedTextInputMole
+const CustomMemoTextInputMole = MemoTextInputMole as unknown as CustomMemoTextInputMoleType
+CustomMemoTextInputMole.RoundInput = RoundInput
+
+export default CustomMemoTextInputMole
