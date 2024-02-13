@@ -58,7 +58,7 @@ interface CustomTextInputMoleType extends React.MemoExoticComponent<(props: text
 }
 
 // 타입 캐스팅
-const CustomMemoTextInputMole: CustomTextInputMoleType = TextInputMole as any
+const CustomMemoTextInputMole: CustomTextInputMoleType = TextInputMole as unknown as CustomTextInputMoleType
 CustomMemoTextInputMole.RoundInput = RoundInput
 
 export default CustomMemoTextInputMole
