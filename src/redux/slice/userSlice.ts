@@ -1,8 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
 import { UserLoginTyps } from "@/types/model/user/user"
+import { UserDefaultTyps } from "@/types/slice/user/defaultType"
 
-const initialState = {
+interface defaultStateTypes extends UserDefaultTyps {
+  loading: boolean
+}
+
+const initialState: defaultStateTypes = {
   loading: false,
   name: "",
   id: "",
@@ -25,7 +30,8 @@ const userReducer = createSlice({
         state.loading = true
       })
       .addCase(requestLogin.fulfilled, (state, action) => {
-        const { payload } = action
+        // const { payload } = action
+        console.log(action)
         state.loading = false
         // state.name = payload.data.name
         // state.id = payload.data.id

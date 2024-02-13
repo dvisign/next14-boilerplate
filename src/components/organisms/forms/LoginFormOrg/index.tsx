@@ -19,7 +19,7 @@ const LoginForm = () => {
           />
         </div>
         <div className="form-line">
-          <TextInputMole
+          <TextInputMole.RoundInput
             className="test2"
             value={password}
             onChange={onChangePassword}
