@@ -26,19 +26,22 @@ const persistConfig = {
 
 const rootReducer = combineReducers({ user: userReducer })
 
-const persistedReducer = persistReducer(persistConfig, rootReducer)
+const persistedReducer = persistReducer<ReturnType<typeof rootReducer>>(persistConfig, rootReducer)
+
 const middlewares = []
 
 export const store = configureStore({
   reducer: persistedReducer,
   devTools: process.env.NODE_ENV !== "production", // redux devtools 개발 환경에서만 활성화
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
-      serializableCheck: false,
-      // serializableCheck: {
-      //   ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      // },
+      // serializableCheck: false,
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
     }).concat(middlewares),
 })
 
 export const persistor = persistStore(store)
+export type RootState = ReturnType<typeof store.getState>
+export type AppDispatch = typeof store.dispatch
