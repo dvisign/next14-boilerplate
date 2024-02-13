@@ -21,39 +21,17 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "src/*"
-      ],
-      "@/app*": [
-        "src/app/*"
-      ],
-      "@/components/*": [
-        "src/components/*"
-      ],
-      "@/atoms/*": [
-        "src/components/atoms/*"
-      ],
-      "@/molecules/*": [
-        "src/components/molecules/*"
-      ],
-      "@/organisms/*": [
-        "src/components/organisms/*"
-      ],
-      "@/templates/*": [
-        "src/components/templates/*"
-      ],
-      "@/hooks/*": [
-        "src/hooks/*"
-      ],
-      "@/assets/*": [
-        "src/assets/*"
-      ],
-      "@/redux/*": [
-        "src/redux/*"
-      ],
-      "@/types/*": [
-        "src/types/*"
-      ]
+      "@/*": ["src/*"],
+      "@/app*": ["src/app/*"],
+      "@/components/*": ["src/components/*"],
+      "@/atoms/*": ["src/components/atoms/*"],
+      "@/molecules/*": ["src/components/molecules/*"],
+      "@/organisms/*": ["src/components/organisms/*"],
+      "@/templates/*": ["src/components/templates/*"],
+      "@/hooks/*": ["src/hooks/*"],
+      "@/assets/*": ["src/assets/*"],
+      "@/redux/*": ["src/redux/*"],
+      "@/types/*": ["src/types/*"]
     },
     "plugins": [
       {
