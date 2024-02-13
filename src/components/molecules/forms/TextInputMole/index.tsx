@@ -1,4 +1,4 @@
-import React, { memo, ReactElement } from "react"
+import { memo, ReactElement, MemoExoticComponent } from "react"
 import Label from "@/atoms/forms/Label"
 import TextInput from "@/atoms/forms/TextInput"
 import { TextWrapperMoleStyle, RoundTextInputMoleStyle, TextInputMoleStyle, IconStyle } from "./style"
@@ -53,7 +53,7 @@ const TextInputMole = memo(
 )
 
 // 커스텀 타입 정의
-interface CustomTextInputMoleType extends React.MemoExoticComponent<(props: textInputMoleTypes) => ReactElement> {
+interface CustomTextInputMoleType extends MemoExoticComponent<() => ReactElement> {
   RoundInput: typeof RoundInput
 }
 
