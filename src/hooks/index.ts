@@ -1,8 +1,7 @@
-import { Dispatch, SetStateAction, useCallback, useState, ChangeEvent } from "react"
+import { useCallback, useState, ChangeEvent } from "react"
+import { UseInputReturnTypes } from "./types"
 
-type ReturnTypes<T> = [T, (e: ChangeEvent<HTMLInputElement>) => void, Dispatch<SetStateAction<T>>]
-
-export const useInput = <T>(initialData: T): ReturnTypes<T> => {
+export const useInput = <T>(initialData: T): UseInputReturnTypes<T> => {
   const [value, setValue] = useState(initialData)
   const handler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value as unknown as T)
