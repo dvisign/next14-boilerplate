@@ -15,17 +15,17 @@ const LoginForm = () => {
             onChange={onChangeId}
             type="text"
             label={"아이디"}
-            icons={<UserIcon />}
+            iconComponent={<UserIcon />}
           />
         </div>
         <div className="form-line">
-          <TextInputMole.RoundInput
+          <TextInputMole
             className="test2"
             value={password}
             onChange={onChangePassword}
             type="password"
             label={"패스워드"}
-            icons={<LockPasswordIcon />}
+            iconComponent={<LockPasswordIcon />}
           />
         </div>
         <div className="form-line submit-btn" style={{ display: "flex", gap: 10 }}>

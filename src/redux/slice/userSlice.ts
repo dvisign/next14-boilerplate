@@ -14,10 +14,10 @@ const initialState: defaultStateTypes = {
 }
 
 export const requestLogin = createAsyncThunk("user/login", async (payload: UserLoginTypes) => {
-  return axios.post("/api/user", payload)
+  return axios.post("http://localhost:9090/api/user", payload)
 })
 export const requestLogout = createAsyncThunk("user/logout", async action => {
-  return axios.get("/api/user/logout")
+  return axios.get("http://localhost:9090/api/user/logout")
 })
 
 const userReducer = createSlice({

@@ -1,6 +1,4 @@
-import { ChangeEvent } from "react"
-export interface TextInputTypes {
-  type: string
-  value: string
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void
+import { InputHTMLAttributes } from "react"
+export interface TextInputTypes extends InputHTMLAttributes<HTMLInputElement> {
+  icons?: boolean
 }
