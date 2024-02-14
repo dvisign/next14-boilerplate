@@ -15,11 +15,11 @@ const TextInputMole = memo(
     ...props
   }: TextInputMoleTypes) => {
     return (
-      <TextWrapperMoleStyle {...props}>
+      <TextWrapperMoleStyle {...props} iconComponent={iconComponent}>
         <Label label={label} />
         <TextInputMoleStyle>
           {iconComponent && <IconStyle>{iconComponent}</IconStyle>}
-          <TextInput type={type} onChange={onChange} value={value} icons={!!iconComponent} />
+          <TextInput type={type} onChange={onChange} value={value} />
         </TextInputMoleStyle>
       </TextWrapperMoleStyle>
     )
