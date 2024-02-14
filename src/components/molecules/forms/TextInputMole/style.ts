@@ -20,15 +20,10 @@ export const TextInputMoleStyle = styled("div")<TextInputMoleStyleProps>`
   border-radius: 0;
 `
 // 라운드 필드 레이아웃 스타일
-export const RoundTextInputMoleStyle = styled("div")<TextInputMoleStyleProps>`
-  display: flex;
-  position: relative;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 8px 12px 8px ${({ icons }) => (icons ? "40px" : "12px")};
-  border-radius: 5px;
+export const RoundWrapperMoleStyle = styled(TextWrapperMoleStyle)<TextInputMoleStyleProps>`
+  ${TextInputMoleStyle} {
+    border-radius: 5px;
+  }
 `
 // 아이콘 스타일
 export const IconStyle = styled.span`

@@ -1,8 +1,8 @@
 import { memo, ReactElement, MemoExoticComponent } from "react"
 import Label from "@/atoms/forms/Label"
 import TextInput from "@/atoms/forms/TextInput"
-import { TextWrapperMoleStyle, RoundTextInputMoleStyle, TextInputMoleStyle, IconStyle } from "./style"
-import { textInputMoleTypes } from "./types"
+import { TextWrapperMoleStyle, RoundWrapperMoleStyle, TextInputMoleStyle, IconStyle } from "./style"
+import { TextInputMoleTypes } from "./types"
 
 // 라운드 필드 컴포넌트
 const RoundInput = memo(
@@ -14,15 +14,15 @@ const RoundInput = memo(
     id = "",
     onChange = () => null,
     value = "",
-  }: textInputMoleTypes) => {
+  }: TextInputMoleTypes) => {
     return (
-      <TextWrapperMoleStyle className={className} id={id}>
+      <RoundWrapperMoleStyle className={className} id={id}>
         <Label label={label} />
-        <RoundTextInputMoleStyle icons={!!icons}>
+        <TextInputMoleStyle icons={!!icons}>
           {icons && <IconStyle>{icons}</IconStyle>}
           <TextInput type={type} onChange={onChange} value={value} />
-        </RoundTextInputMoleStyle>
-      </TextWrapperMoleStyle>
+        </TextInputMoleStyle>
+      </RoundWrapperMoleStyle>
     )
   },
   (prevProps, nextProps) => prevProps.value === nextProps.value,
@@ -38,7 +38,7 @@ const TextInputMole = memo(
     id = "",
     onChange = () => null,
     value = "",
-  }: textInputMoleTypes) => {
+  }: TextInputMoleTypes) => {
     return (
       <TextWrapperMoleStyle className={className} id={id}>
         <Label label={label} />
@@ -53,12 +53,12 @@ const TextInputMole = memo(
 )
 
 // 커스텀 타입 정의
-interface CustomTextInputMoleType extends MemoExoticComponent<(props: textInputMoleTypes) => ReactElement> {
+interface TextInputMoleType extends MemoExoticComponent<(props: TextInputMoleTypes) => ReactElement> {
   RoundInput: typeof RoundInput
 }
 
-// 타입 캐스팅
-const CustomMemoTextInputMole: CustomTextInputMoleType = TextInputMole as unknown as CustomTextInputMoleType
-CustomMemoTextInputMole.RoundInput = RoundInput
+// TextInputMole에 RoundInput 속성 추가
+const TextInputMoleWithRoundInput: TextInputMoleType = TextInputMole as TextInputMoleType
+TextInputMoleWithRoundInput.RoundInput = RoundInput
 
-export default CustomMemoTextInputMole
+export default TextInputMoleWithRoundInput

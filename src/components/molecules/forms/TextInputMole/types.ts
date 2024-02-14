@@ -1,7 +1,7 @@
 import { ReactElement } from "react"
-import { textInputTyps } from "@/atoms/forms/TextInput/types"
+import { TextInputTypes } from "@/atoms/forms/TextInput/types"
 
-export interface textInputMoleTypes extends textInputTyps {
+export interface TextInputMoleTypes extends TextInputTypes {
   label?: string
   icons?: ReactElement | null
   className?: string

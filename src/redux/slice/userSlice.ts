@@ -1,9 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
-import { UserLoginTyps } from "@/types/model/user/user"
-import { UserDefaultTyps } from "@/types/slice/user/defaultType"
+import { UserLoginTypes } from "@/types/model/user/user"
+import { UserDefaultTypes } from "@/types/slice/user/defaultType"
 
-interface defaultStateTypes extends UserDefaultTyps {
+interface defaultStateTypes extends UserDefaultTypes {
   loading: boolean
 }
 
@@ -13,7 +13,7 @@ const initialState: defaultStateTypes = {
   id: "",
 }
 
-export const requestLogin = createAsyncThunk("user/login", async (payload: UserLoginTyps) => {
+export const requestLogin = createAsyncThunk("user/login", async (payload: UserLoginTypes) => {
   return axios.post("/api/user", payload)
 })
 export const requestLogout = createAsyncThunk("user/logout", async action => {

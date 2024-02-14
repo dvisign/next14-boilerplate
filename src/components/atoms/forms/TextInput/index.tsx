@@ -1,10 +1,10 @@
 import React, { memo } from "react"
 import { InputBaseStyle } from "./styles"
-import { textInputTyps } from "./types"
+import { TextInputTypes } from "./types"
 
 // 입력 필드
 const TextInput = memo(
-  ({ type = "text", value = "", onChange = () => null }: textInputTyps) => {
+  ({ type = "text", value = "", onChange = () => null }: TextInputTypes) => {
     return <InputBaseStyle type={type} value={value} onChange={onChange} />
   },
   (prevProps, nextProps) => {
