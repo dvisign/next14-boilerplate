@@ -53,7 +53,7 @@ const TextInputMole = memo(
 )
 
 // 커스텀 타입 정의
-interface TextInputMoleType extends MemoExoticComponent<(props: TextInputMoleTypes) => ReactElement> {
+interface TextInputMoleType extends MemoExoticComponent<(_: TextInputMoleTypes) => ReactElement> {
   RoundInput: typeof RoundInput
 }
 
