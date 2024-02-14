@@ -1,4 +1,4 @@
-import { LockPasswordStyles } from "./styles"
+import { LockPasswordStyles } from "../styles"
 function LockPasswordIcon() {
   return <LockPasswordStyles />
 }

@@ -1,4 +1,4 @@
-import { UserIconStyles } from "./styles"
+import { UserIconStyles } from "../styles"
 
 const UserIcon = () => {
   return <UserIconStyles />
