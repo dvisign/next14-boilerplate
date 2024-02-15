@@ -29,10 +29,9 @@ const LoginForm = () => {
           />
         </div>
         <div className="form-line submit-btn" style={{ display: "flex", gap: 10 }}>
-          <IconButtonMole type="submit">로그인</IconButtonMole>
-          <IconButtonMole.Round type="submit">라운드</IconButtonMole.Round>
-          <IconButtonMole.Outline type="submit">아웃라인</IconButtonMole.Outline>
-          <IconButtonMole.OutlineRound type="submit">아웃라인 라운드</IconButtonMole.OutlineRound>
+          <IconButtonMole className="tests" id="testButton">
+            로그인
+          </IconButtonMole>
         </div>
       </div>
     </form>

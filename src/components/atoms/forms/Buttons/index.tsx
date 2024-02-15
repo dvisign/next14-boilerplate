@@ -1,12 +1,24 @@
-import { memo } from "react"
+import { useButton } from "@mui/base"
+import { clsx } from "clsx"
 import { ButtonBase } from "./styles"
-import { ButtonTypes, ButtonNavtiveTypes } from "./types"
+import { ButtonTypes } from "./types"
 
-const Button = memo(({ children, onClick, type = ButtonNavtiveTypes.SUBMIT }: ButtonTypes) => {
+const Button = (props: ButtonTypes) => {
+  const { children, disabled } = props
+  const { active, focusVisible, getRootProps } = useButton({
+    ...props,
+  })
+  const classes = {
+    active,
+    disabled,
+    focusVisible,
+    [props.className]: !!props.className,
+  }
+  const rootProps = { ...getRootProps(), ...props, type: props?.type ? props?.type : "submit" }
   return (
-    <ButtonBase type={type} onClick={() => (onClick ? onClick() : null)}>
+    <ButtonBase {...rootProps} className={clsx(classes)}>
       {children}
     </ButtonBase>
   )
-})
+}
 export default Button
