@@ -1,0 +1,41 @@
+.baseIconButtonStyle {
+}
+
+.iconStyle {
+}
+
+.buttonIconTextStyle {
+}
+
+.roundButtonStyle {
+  .buttonBase {
+    border-radius: 20px;
+  }
+}
+
+.outlineButtonStyle {
+  .buttonBase {
+    color: #007bff;
+    background-color: transparent;
+    border: 1px solid #007bff;
+
+    &:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+  }
+}
+
+.outlineRoundStyle {
+  .buttonBase {
+    color: #007bff;
+    background-color: transparent;
+    border: 1px solid #007bff;
+    border-radius: 20px;
+
+    &:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+  }
+}
