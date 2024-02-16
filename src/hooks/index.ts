@@ -8,3 +8,7 @@ export const useInput = <T>(initialData: T): UseInputReturnTypes<T> => {
   }, [])
   return [value, handler, setValue]
 }
+
+export const useMemoiZation = (prevProps, nextProps) => {
+  return Object.keys(prevProps).every(key => prevProps[key] === nextProps[key])
+}

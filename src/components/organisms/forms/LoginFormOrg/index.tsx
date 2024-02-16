@@ -2,6 +2,7 @@ import { useLogin } from "@/app/(loginBefore)/page"
 import TextInputMole from "@/molecules/forms/TextInputMole"
 import IconButtonMole from "@/molecules/forms/IconButtonMole"
 import { UserIcon, LockPasswordIcon } from "@/components/atoms/Icons"
+import { FiLogIn } from "react-icons/fi"
 
 const LoginForm = () => {
   const { id, password, onChangeId, onChangePassword, onSubmit } = useLogin()
@@ -29,7 +30,7 @@ const LoginForm = () => {
           />
         </div>
         <div className="form-line submit-btn" style={{ display: "flex", gap: 10 }}>
-          <IconButtonMole className="tests" id="testButton">
+          <IconButtonMole className="tests" id="testButton" icon={<FiLogIn />}>
             로그인
           </IconButtonMole>
         </div>

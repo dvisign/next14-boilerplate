@@ -7,23 +7,17 @@
 
 .textInputMoleStyle {
   position: relative;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  &.focused {
+    border: 1px solid #0265dc;
+  }
 }
 
 .iconStyle {
   display: block;
-  position: absolute;
-  left: 10px;
-  top: 50%;
-  transform: translateY(-50%);
   font-size: 18px;
   color: #666;
-}
-
-// inputBaseStyle 클래스는 TextInput 컴포넌트의 스타일을 재정의할 필요가 있을 때 사용
-.inputBaseStyle {
-  padding: 8px 12px;
-}
-
-.inputWithIcon {
-  padding-left: 40px; // 아이콘이 있는 경우 패딩 조정
 }
