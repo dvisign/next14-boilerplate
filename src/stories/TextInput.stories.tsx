@@ -40,5 +40,6 @@ export const Default: Story = {
     display: "block",
     width: 100,
     height: 20,
+    onChange,
   },
 }

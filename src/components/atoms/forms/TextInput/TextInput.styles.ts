@@ -9,7 +9,7 @@ export const InputBaseStyle = styled("input")<TextInputTypes>`
     ${({ borderColor }) => borderColor || "#ccc"};
   font-size: 16px;
   width: ${({ width }) => (width ? width + "px" : "100%")};
-  height: ${({ height }) => (height ? height + "px" : "20px")};
+  height: ${({ height }) => (height ? height + "px" : "auto")};
   padding: 8px 12px 8px 12px;
   border-radius: 0;
   transition: 0.3s;
