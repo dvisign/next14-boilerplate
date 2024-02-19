@@ -5,8 +5,7 @@ import { useInput } from "@/hooks"
 import { useAppSelector, useAppDispatch } from "@/redux/store"
 import { requestLogin } from "@/redux/slice/userSlice"
 import LoginFormOrg from "@/organisms/forms/LoginFormOrg"
-import { LoginFormTypes } from "@/organisms/forms/LoginFormOrg/types"
-import "./styles.scss"
+import { LoginFormTypes } from "@/components/organisms/forms/LoginFormOrg/LoginFormOrg.types"
 
 const LoginContext = createContext<LoginFormTypes | null>(null)
 

@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
-import { UserLoginTypes } from "@/types/model/user/user"
-import { UserDefaultTypes } from "@/types/slice/user/defaultType"
+import { UserLoginTypes } from "@/types/model/user/userModel"
+import { UserDefaultTypes } from "@/types/slice/user/userSliceTypes"
 
 interface defaultStateTypes extends UserDefaultTypes {
   loading: boolean

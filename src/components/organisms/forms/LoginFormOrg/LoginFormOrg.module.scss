@@ -1,0 +1,18 @@
+.form {
+  display: flex;
+  height: 100vh;
+  width: 800px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+.formLine {
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  &:global(.submitBtn) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

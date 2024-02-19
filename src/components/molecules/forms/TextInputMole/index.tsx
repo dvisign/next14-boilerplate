@@ -1,6 +1,6 @@
 import { memo, useState } from "react"
 import { clsx } from "clsx"
-import Label from "@/atoms/forms/Label"
+import Label from "@/components/atoms/forms/TextLabel"
 import TextInput from "@/atoms/forms/TextInput"
 import styles from "./TextInputMole.module.scss"
 import { TextInputMoleTypes } from "./TextInputMole.types"
