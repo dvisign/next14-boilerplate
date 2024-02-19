@@ -6,7 +6,7 @@ import { RiLockPasswordFill } from "react-icons/ri"
 import { FiLogIn } from "react-icons/fi"
 import LoginFormStyles from "./LoginFormOrg.module.scss"
 
-const LoginFormOrg = () => {
+function LoginFormOrg() {
   const { id, password, onChangeId, onChangePassword, onSubmit } = useLogin()
   return (
     <form onSubmit={onSubmit} className={LoginFormStyles.form}>

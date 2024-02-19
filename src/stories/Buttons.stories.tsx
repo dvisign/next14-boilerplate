@@ -1,20 +1,20 @@
 import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 import type { Meta, StoryObj } from "@storybook/react"
-import Button from "../components/atoms/forms/Buttons/index"
-import { ButtonTypes } from "../components/atoms/forms/Buttons/types"
+import Button from "@/atoms/forms/Buttons"
+import { ButtonTypes } from "@/atoms/forms/Buttons/Buttons.types"
 
-const meta: Meta<ButtonTypes> = {
+const meta = {
   title: "Component/Atoms/Button",
   component: Button,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
-}
+} satisfies Meta<typeof Button>
 
 export default meta
-
+type Story = StoryObj<typeof meta>
 function onClick(val, setVal) {
   const newCount = val + 1
   setVal(newCount)
@@ -33,9 +33,6 @@ const Template = (args: ButtonTypes) => {
     </Button>
   )
 }
-type Story = StoryObj<ButtonTypes>
 export const Default: Story = {
-  render: Template,
-  // args: { children: "buttons", disabled: true },
-  args: { children: "primary" },
+  render: args => <Template {...args}>Button</Template>,
 }

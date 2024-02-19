@@ -8,7 +8,13 @@ export const InputBaseStyle = styled("input")<TextInputTypes>`
   border: ${({ borderSize }) => `${borderSize}px` || "1px"} ${({ borderStyle }) => borderStyle || "solid"}
     ${({ borderColor }) => borderColor || "#ccc"};
   font-size: 16px;
-  width: 100%;
+  width: ${({ width }) => (width ? width + "px" : "100%")};
+  height: ${({ height }) => (height ? height + "px" : "20px")};
   padding: 8px 12px 8px 12px;
   border-radius: 0;
+  transition: 0.3s;
+  &:focus {
+    outline: ${({ borderSize }) => `${borderSize}px` || "1px"} ${({ borderStyle }) => borderStyle || "solid"}
+      ${({ outLineColor }) => outLineColor || "#007bff"};
+  }
 `

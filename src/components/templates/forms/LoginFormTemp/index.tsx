@@ -1,6 +1,6 @@
 import LoginFormOrg from "@/organisms/forms/LoginFormOrg"
 import loginFormStyles from "./LoginFormTemp.module.scss"
-const LoginFormTemp = () => {
+function LoginFormTemp() {
   return (
     <div className={loginFormStyles.formWrapper}>
       <LoginFormOrg />
