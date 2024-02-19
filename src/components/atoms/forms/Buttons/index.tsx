@@ -1,7 +1,7 @@
 import { useButton } from "@mui/base"
 import { clsx } from "clsx"
-import { ButtonBase } from "./styles"
-import { ButtonTypes } from "./types"
+import { ButtonBase } from "./Buttons.styles"
+import { ButtonTypes } from "./Buttons.types"
 
 const Button = ({ children, disabled, ...props }: ButtonTypes) => {
   const { active, focusVisible, getRootProps } = useButton({

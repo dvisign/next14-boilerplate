@@ -1,0 +1,51 @@
+.baseIconButtonStyle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.iconStyle {
+  display: block;
+  svg {
+    display: block;
+  }
+}
+
+.buttonIconTextStyle {
+  display: block;
+  line-height: 1;
+}
+
+.roundButtonStyle {
+  .buttonBase {
+    border-radius: 20px;
+  }
+}
+
+.outlineButtonStyle {
+  .buttonBase {
+    color: #007bff;
+    background-color: transparent;
+    border: 1px solid #007bff;
+
+    &:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+  }
+}
+
+.outlineRoundStyle {
+  .buttonBase {
+    color: #007bff;
+    background-color: transparent;
+    border: 1px solid #007bff;
+    border-radius: 20px;
+
+    &:hover {
+      background-color: #007bff;
+      color: #fff;
+    }
+  }
+}

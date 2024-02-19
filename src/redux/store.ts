@@ -44,9 +44,9 @@ export const store = configureStore({
     }).concat(middlewares),
 })
 
-export const persistor = persistStore(store)
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type RootStateTypes = ReturnType<typeof store.getState>
+export type AppDispatchTypes = typeof store.dispatch
 
-export const useAppDispatch: () => AppDispatch = useDispatch
-export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector
+export const persistor = persistStore(store)
+export const useAppDispatch: () => AppDispatchTypes = useDispatch
+export const useAppSelector: TypedUseSelectorHook<RootStateTypes> = useSelector

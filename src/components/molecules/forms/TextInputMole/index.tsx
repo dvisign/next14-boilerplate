@@ -1,12 +1,13 @@
-import { memo } from "react"
-import Label from "@/atoms/forms/Label"
+import { memo, useState } from "react"
+import { clsx } from "clsx"
+import Label from "@/components/atoms/forms/TextLabel"
 import TextInput from "@/atoms/forms/TextInput"
-import { TextWrapperMoleStyle, TextInputMoleStyle, IconStyle } from "./style"
-import { TextInputMoleTypes } from "./types"
+import styles from "./TextInputMole.module.scss"
+import { TextInputMoleTypes } from "./TextInputMole.types"
 
-// 입력 필드 컴포넌트
 const TextInputMole = memo(
   ({
+    className = "",
     type = "text",
     label = "",
     iconComponent = null,
@@ -14,14 +15,23 @@ const TextInputMole = memo(
     value = "",
     ...props
   }: TextInputMoleTypes) => {
+    const [focused, setFocused] = useState<boolean>(false)
+    const wrapperClass = clsx(styles.textInputMoleStyle, { focused: focused })
     return (
-      <TextWrapperMoleStyle {...props} iconComponent={iconComponent}>
-        <Label label={label} />
-        <TextInputMoleStyle>
-          {iconComponent && <IconStyle>{iconComponent}</IconStyle>}
-          <TextInput type={type} onChange={onChange} value={value} />
-        </TextInputMoleStyle>
-      </TextWrapperMoleStyle>
+      <div className={clsx(styles.textWrapperMoleStyle, className)} {...props}>
+        {label && <Label label={label} />}
+        <div className={wrapperClass}>
+          {iconComponent && <span className={styles.iconStyle}>{iconComponent}</span>}
+          <TextInput
+            type={type}
+            onChange={onChange}
+            value={value}
+            borderSize={0}
+            onFocus={() => setFocused(true)}
+            onBlur={() => setFocused(false)}
+          />
+        </div>
+      </div>
     )
   },
   (prevProps, nextProps) => prevProps.value === nextProps.value,

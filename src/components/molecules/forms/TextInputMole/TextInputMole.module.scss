@@ -1,0 +1,23 @@
+.textWrapperMoleStyle {
+  display: flex;
+  position: relative;
+  gap: 10px;
+  align-items: center;
+}
+
+.textInputMoleStyle {
+  position: relative;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  &:global(.focused) {
+    border: 1px solid #0265dc;
+  }
+}
+
+.iconStyle {
+  display: block;
+  font-size: 18px;
+  color: #666;
+}
