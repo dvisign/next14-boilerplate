@@ -2,10 +2,7 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": "./tsconfig.json",
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
+    "sourceType": "module"
   },
   "settings": {
     "import/resolver": {
@@ -25,15 +22,13 @@
     "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:jsx-a11y/recommended",
+    "plugin:storybook/recommended",
     "next",
     "next/core-web-vitals",
-    "plugin:storybook/recommended",
     "prettier"
   ],
   "plugins": [
-    "react",
     "prettier",
-    "autofix",
     "react-hooks",
     "@typescript-eslint"
   ],
