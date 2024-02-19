@@ -7,6 +7,8 @@ import { TextInputMoleTypes } from "./TextInputMole.types"
 
 function TextInputMole({
   className = "",
+  disabled = false,
+  disabledColor = "",
   type = "text",
   label = "",
   iconComponent = null,
@@ -15,7 +17,7 @@ function TextInputMole({
   ...props
 }: TextInputMoleTypes) {
   const [focused, setFocused] = useState<boolean>(false)
-  const wrapperClass = clsx(styles.textInputMoleStyle, { focused: focused })
+  const wrapperClass = clsx(styles.textInputMoleStyle, { focused: focused }, { disabled })
   return (
     <div className={clsx(styles.textWrapperMoleStyle, className)} {...props}>
       {label && <Label label={label} />}
@@ -28,6 +30,8 @@ function TextInputMole({
           borderSize={0}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
+          disabled={disabled}
+          disabledColor={disabledColor}
         />
       </div>
     </div>

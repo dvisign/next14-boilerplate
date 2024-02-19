@@ -1,6 +1,6 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
+import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit"
 import axios from "axios"
-import { UserLoginTypes } from "@/types/model/user/userModel"
+import { UserLoginTypes, UserResponseTypes } from "@/types/model/user/userModel"
 import { UserDefaultTypes } from "@/types/slice/user/userSliceTypes"
 
 interface defaultStateTypes extends UserDefaultTypes {
@@ -13,10 +13,26 @@ const initialState: defaultStateTypes = {
   id: "",
 }
 
-export const requestLogin = createAsyncThunk("user/login", async (payload: UserLoginTypes) => {
-  return axios.post("http://localhost:9090/api/user", payload)
-})
-export const requestLogout = createAsyncThunk("user/logout", async action => {
+export const requestLogin = createAsyncThunk<UserResponseTypes, UserLoginTypes, { rejectValue: any }>(
+  "user/login",
+  async (payload: UserLoginTypes, { rejectWithValue }) => {
+    try {
+      const response = await axios.post("http://localhost:9090/api/user", payload)
+      return response.data // 성공 시 응답 데이터 반환
+    } catch (err) {
+      if (axios.isAxiosError(err)) {
+        // Axios 에러 처리
+        // 여기서 YourErrorType은 에러 처리에 사용할 타입이며, 적절히 정의해야 합니다.
+        return rejectWithValue(err.response?.data)
+      } else {
+        // 기타 에러 처리
+        return rejectWithValue("An unknown error occurred")
+      }
+    }
+  },
+)
+
+export const requestLogout = createAsyncThunk("user/logout", async () => {
   return axios.get("http://localhost:9090/api/user/logout")
 })
 
@@ -29,27 +45,29 @@ const userReducer = createSlice({
       .addCase(requestLogin.pending, state => {
         state.loading = true
       })
-      .addCase(requestLogin.fulfilled, (state, action) => {
-        // const { payload } = action
-        console.log(action)
+      .addCase(requestLogin.fulfilled, (state: defaultStateTypes, action: PayloadAction<UserResponseTypes>) => {
+        const { payload } = action
+        const { reason, status, user } = payload
+        console.log(payload)
         state.loading = false
-        // state.name = payload.data.name
-        // state.id = payload.data.id
+        if (status === 200) {
+          state.name = user.name
+          state.id = user.id
+        } else {
+          alert(reason || "알 수 없는 오류가 발생하였습니다. 잠시 후 다시 이용해 주세요.")
+        }
       })
-      .addCase(requestLogin.rejected, (state, action) => {
+      .addCase(requestLogin.rejected, (state: defaultStateTypes, action: PayloadAction<any | string>) => {
         state.loading = false
-        // alert(action?.data?.reason || "알 수 없는 오류가 발생 하였습니다.")
+        // 에러 정보에 따른 상태 업데이트 또는 알림 처리
+        console.error(action.payload)
       })
       .addCase(requestLogout.pending, state => {
         console.log("logout")
       })
       .addCase(requestLogout.fulfilled, (state, action) => {
-        const { payload } = action
         state.id = ""
         state.name = ""
-        // if (payload.data.staus) {
-        //   alert(payload.data.message)
-        // }
       })
       .addCase(requestLogout.rejected, (state, action) => {
         console.log("error")

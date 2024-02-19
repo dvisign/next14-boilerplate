@@ -14,10 +14,16 @@
   &:global(.focused) {
     border: 1px solid #0265dc;
   }
+  &:global(.disabled) {
+    background-color: rgba(204, 204, 204, 0.3);
+  }
 }
 
 .iconStyle {
   display: block;
   font-size: 18px;
   color: #666;
+  :global(svg) {
+    display: block;
+  }
 }

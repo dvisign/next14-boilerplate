@@ -9,7 +9,7 @@ import { LoginFormTypes } from "@/components/organisms/forms/LoginFormOrg/LoginF
 
 const LoginContext = createContext<LoginFormTypes | null>(null)
 
-function Login() {
+function LoginPage() {
   const [id, onChangeId] = useInput<string>("")
   const [password, onChangePassword] = useInput<string>("")
   const router = useRouter()
@@ -37,4 +37,4 @@ function Login() {
   )
 }
 export const useLogin = () => useContext(LoginContext)
-export default Login
+export default LoginPage

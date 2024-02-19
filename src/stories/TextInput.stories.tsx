@@ -41,5 +41,6 @@ export const Default: Story = {
     width: 100,
     height: 20,
     onChange,
+    disabledColor: "rgba(204, 204, 204, 0.3)",
   },
 }

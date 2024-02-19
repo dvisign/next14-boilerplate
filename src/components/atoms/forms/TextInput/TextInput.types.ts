@@ -4,6 +4,8 @@ export interface TextInputTypes extends InputHTMLAttributes<HTMLInputElement> {
   borderStyle?: "solid" | "dotted"
   borderColor?: string | undefined
   outLineColor?: string | undefined
+  disabledColor?: string | undefined
+  disabled?: boolean
   width?: number
   height?: number
   display?: "flex" | "none" | "block" | "inline" | "inline-block"
