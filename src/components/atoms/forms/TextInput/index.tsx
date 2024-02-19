@@ -1,3 +1,4 @@
+import { memo } from "react"
 import { useInput } from "@mui/base"
 import { InputBaseStyle } from "./TextInput.styles"
 import { TextInputTypes } from "./TextInput.types"
@@ -11,4 +12,4 @@ function TextInput(props: TextInputTypes) {
     </div>
   )
 }
-export default TextInput
+export default memo(TextInput, (prev, next) => prev.value === next.value)

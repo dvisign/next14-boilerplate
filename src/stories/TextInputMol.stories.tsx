@@ -1,27 +1,27 @@
 import React, { useState, useCallback } from "react"
 import { action } from "@storybook/addon-actions"
 import type { Meta, StoryObj } from "@storybook/react"
-import TextInput from "@/atoms/forms/TextInput"
-import { TextInputTypes } from "@/atoms/forms/TextInput/TextInput.types"
+import { FaUser } from "react-icons/fa"
+import TextInputMol from "@/molecules/forms/TextInputMol"
+import { TextInputMolTypes } from "@/molecules/forms/TextInputMol/TextInputMol.types"
 
 const meta = {
-  title: "Component/Atoms/TextInput",
-  component: TextInput,
+  title: "Component/Molecules/TextInputMol",
+  component: TextInputMol,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof TextInput>
+} satisfies Meta<typeof TextInputMol>
 
 export default meta
 type Story = StoryObj<typeof meta>
-
 function onChange(val, setVal) {
   setVal(val)
   action("onChange value")(val)
 }
 export const Default: Story = {
-  render: (args: TextInputTypes) => {
+  render: (args: TextInputMolTypes) => {
     const [value, setValue] = useState("")
     const handleChange = useCallback(
       e => {
@@ -29,9 +29,11 @@ export const Default: Story = {
       },
       [value],
     )
-    return <TextInput {...args} value={value} onChange={handleChange} />
+    return <TextInputMol {...args} value={value} onChange={handleChange} />
   },
   args: {
+    iconComponent: <FaUser />,
+    label: "label",
     value: "",
     borderSize: 1,
     borderStyle: "solid",

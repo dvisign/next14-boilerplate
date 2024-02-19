@@ -8,7 +8,7 @@ export const InputBaseStyle = styled("input")<TextInputTypes>`
   border: ${({ borderSize }) => `${borderSize}px` || "1px"} ${({ borderStyle }) => borderStyle || "solid"}
     ${({ borderColor }) => borderColor || "#ccc"};
   font-size: 16px;
-  width: ${({ width }) => (width ? width + "px" : "100%")};
+  width: ${({ width }) => (width ? width + "px" : "auto")};
   height: ${({ height }) => (height ? height + "px" : "auto")};
   padding: 8px 12px 8px 12px;
   border-radius: 0;

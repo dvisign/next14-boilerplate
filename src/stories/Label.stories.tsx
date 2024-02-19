@@ -15,9 +15,11 @@ const meta = {
 
 export default meta
 type Story = StoryObj<typeof meta>
-const Template = (args: TextLabelTypes) => {
-  return <TextLabel {...args} label={"test"} />
-}
 export const Default: Story = {
-  render: args => <Template {...args}>Button</Template>,
+  render: (args: TextLabelTypes) => {
+    return <TextLabel {...args} />
+  },
+  args: {
+    label: "Label",
+  },
 }

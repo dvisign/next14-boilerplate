@@ -2,9 +2,6 @@
 
 NEXT14 Boiler Plate
 
-- [Start App](#install) – 시작 스크립트
-- [StoryBook](#creating-an-app) – 스토리북 스크립트
-
 ## 인스톨
 
 ```sh

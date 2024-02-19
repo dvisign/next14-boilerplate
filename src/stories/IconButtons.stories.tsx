@@ -1,17 +1,18 @@
 import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 import type { Meta, StoryObj } from "@storybook/react"
-import Button from "@/atoms/forms/Buttons"
-import { ButtonTypes } from "@/atoms/forms/Buttons/Buttons.types"
+import { FiLogIn } from "react-icons/fi"
+import IconButtonMol from "@/molecules/forms/IconButtonMol"
+import { ButtonMolTypes } from "@/molecules/forms/IconButtonMol/IconButton.types"
 
 const meta = {
-  title: "Component/Atoms/Button",
-  component: Button,
+  title: "Component/Molecules/IconButtonMol",
+  component: IconButtonMol,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof Button>
+} satisfies Meta<typeof IconButtonMol>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -21,19 +22,18 @@ function onClick(val, setVal) {
   action("clicked")(newCount)
 }
 export const Default: Story = {
-  render: (args: ButtonTypes) => {
+  render: (args: ButtonMolTypes) => {
     const [count, setCount] = useState(0)
-
     const handleClick = () => {
       onClick(count, setCount)
     }
     return (
-      <Button {...args} onClick={handleClick}>
+      <IconButtonMol {...args} icon={<FiLogIn />} onClick={handleClick}>
         {args.children}
-      </Button>
+      </IconButtonMol>
     )
   },
   args: {
-    children: "Button",
+    children: "iconButtonMol",
   },
 }
