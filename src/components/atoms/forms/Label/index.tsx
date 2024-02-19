@@ -1,5 +1,5 @@
 import { memo } from "react"
-import { LabelStyle } from "./styles"
+import { LabelStyle } from "./Label.styles."
 const Label = ({ label }) => {
   return label && <LabelStyle>{label}</LabelStyle>
 }
