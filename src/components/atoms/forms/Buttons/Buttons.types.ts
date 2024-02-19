@@ -9,5 +9,8 @@ export interface ButtonTypes extends ButtonHTMLAttributes<HTMLButtonElement> {
    * 클릭 이벤트
    */
   onClick?: () => void
+  /**
+   * disabled
+   */
   disabled?: boolean
 }

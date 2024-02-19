@@ -1,5 +1,4 @@
-import React, { useState } from "react"
-import { action } from "@storybook/addon-actions"
+import React from "react"
 import type { Meta, StoryObj } from "@storybook/react"
 import TextLabel from "@/atoms/forms/TextLabel"
 import { TextLabelTypes } from "@/atoms/forms/TextLabel/TextLabel.types"

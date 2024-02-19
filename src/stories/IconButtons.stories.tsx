@@ -21,18 +21,19 @@ function onClick(val, setVal) {
   setVal(newCount)
   action("clicked")(newCount)
 }
+function Template(args: ButtonMolTypes) {
+  const [count, setCount] = useState(0)
+  const handleClick = () => {
+    onClick(count, setCount)
+  }
+  return (
+    <IconButtonMol {...args} icon={<FiLogIn />} onClick={handleClick}>
+      {args.children}
+    </IconButtonMol>
+  )
+}
 export const Default: Story = {
-  render: (args: ButtonMolTypes) => {
-    const [count, setCount] = useState(0)
-    const handleClick = () => {
-      onClick(count, setCount)
-    }
-    return (
-      <IconButtonMol {...args} icon={<FiLogIn />} onClick={handleClick}>
-        {args.children}
-      </IconButtonMol>
-    )
-  },
+  render: (args: ButtonMolTypes) => Template(args),
   args: {
     children: "iconButtonMol",
   },

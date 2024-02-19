@@ -20,19 +20,20 @@ function onClick(val, setVal) {
   setVal(newCount)
   action("clicked")(newCount)
 }
-export const Default: Story = {
-  render: (args: ButtonTypes) => {
-    const [count, setCount] = useState(0)
+function Template(args: ButtonTypes) {
+  const [count, setCount] = useState(0)
 
-    const handleClick = () => {
-      onClick(count, setCount)
-    }
-    return (
-      <Button {...args} onClick={handleClick}>
-        {args.children}
-      </Button>
-    )
-  },
+  const handleClick = () => {
+    onClick(count, setCount)
+  }
+  return (
+    <Button {...args} onClick={handleClick}>
+      {args.children}
+    </Button>
+  )
+}
+export const Default: Story = {
+  render: (args: ButtonTypes) => Template(args),
   args: {
     children: "Button",
   },

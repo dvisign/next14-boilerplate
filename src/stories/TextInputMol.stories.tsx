@@ -20,25 +20,27 @@ function onChange(val, setVal) {
   setVal(val)
   action("onChange value")(val)
 }
+function Template(args: TextInputMolTypes) {
+  const [value, setValue] = useState("")
+  const handleChange = useCallback(
+    e => {
+      onChange(e.target.value, setValue)
+    },
+    [value],
+  )
+  return <TextInputMol {...args} value={value} onChange={handleChange} />
+}
 export const Default: Story = {
-  render: (args: TextInputMolTypes) => {
-    const [value, setValue] = useState("")
-    const handleChange = useCallback(
-      e => {
-        onChange(e.target.value, setValue)
-      },
-      [value],
-    )
-    return <TextInputMol {...args} value={value} onChange={handleChange} />
-  },
+  render: (args: TextInputMolTypes) => Template(args),
   args: {
+    id: "test",
     className: "",
     disabled: false,
     disabledColor: "rgba(204, 204, 204, 0.3)",
     type: "text",
     label: "label",
     iconComponent: <FaUser />,
-    onChange,
+    onChange: () => null,
     value: "",
   },
 }
