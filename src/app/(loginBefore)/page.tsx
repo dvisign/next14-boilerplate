@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation"
 import { useInput } from "@/hooks"
 import { useAppSelector, useAppDispatch } from "@/redux/store"
 import { requestLogin } from "@/redux/slice/userSlice"
-import LoginFormTemp from "@/templates/forms/LoginFormTemp"
+import LoginFormTemp from "@/components/templates/forms/LoginFormTmp"
 import { LoginFormTypes } from "@/components/organisms/forms/LoginFormOrg/LoginFormOrg.types"
 
 const LoginContext = createContext<LoginFormTypes | null>(null)

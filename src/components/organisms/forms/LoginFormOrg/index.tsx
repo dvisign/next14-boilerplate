@@ -1,6 +1,6 @@
 import { useLogin } from "@/app/(loginBefore)/page"
-import TextInputMole from "@/molecules/forms/TextInputMole"
-import IconButtonMole from "@/molecules/forms/IconButtonMole"
+import TextInputMole from "@/components/molecules/forms/TextInputMol"
+import IconButtonMole from "@/components/molecules/forms/IconButtonMol"
 import { FaUser } from "react-icons/fa"
 import { RiLockPasswordFill } from "react-icons/ri"
 import { FiLogIn } from "react-icons/fi"

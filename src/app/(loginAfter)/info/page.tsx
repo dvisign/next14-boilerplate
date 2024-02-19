@@ -1,5 +1,5 @@
 "use client"
-import UserInfoTemp from "@/templates/UserInfo"
+import UserInfoTemp from "@/components/templates/UserInfoTmp"
 
 function UserPage() {
   return (

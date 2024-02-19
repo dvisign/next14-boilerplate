@@ -1,11 +1,11 @@
 import { memo } from "react"
 import { clsx } from "clsx"
 import Button from "@/atoms/forms/Buttons"
-import { ButtonMoleTypes } from "./IconButton.types"
-import styles from "./IconButton.module.scss"
+import { ButtonMolTypes } from "./IconButton.types"
+import styles from "./IconButtonMol.module.scss"
 
 // 기본 버튼
-function IconButtonMole({ className, children, icon, ...props }: ButtonMoleTypes) {
+function IconButtonMol({ className, children, icon, ...props }: ButtonMolTypes) {
   return (
     <Button className={clsx(styles.baseIconButtonStyle, className)} {...props}>
       {icon && <span className={styles.iconStyle}>{icon}</span>}
@@ -14,4 +14,4 @@ function IconButtonMole({ className, children, icon, ...props }: ButtonMoleTypes
   )
 }
 
-export default memo(IconButtonMole)
+export default memo(IconButtonMol)

@@ -1,10 +1,10 @@
-import userInfoStyles from "./UserInfoTemp.module.scss"
+import userInfoStyles from "./UserInfoTmp.module.scss"
 import UserInfoOrg from "@/components/organisms/UserInfo"
-function UserInfoTemp() {
+function UserInfoTmp() {
   return (
     <div className={userInfoStyles.userInfoWrapper}>
       <UserInfoOrg />
     </div>
   )
 }
-export default UserInfoTemp
+export default UserInfoTmp

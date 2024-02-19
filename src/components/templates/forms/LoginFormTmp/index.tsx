@@ -1,6 +1,6 @@
 import LoginFormOrg from "@/organisms/forms/LoginFormOrg"
-import loginFormStyles from "./LoginFormTemp.module.scss"
-function LoginFormTemp() {
+import loginFormStyles from "./LoginFormTmp.module.scss"
+function LoginFormTmp() {
   return (
     <div className={loginFormStyles.formWrapper}>
       <LoginFormOrg />
@@ -8,4 +8,4 @@ function LoginFormTemp() {
   )
 }
 
-export default LoginFormTemp
+export default LoginFormTmp

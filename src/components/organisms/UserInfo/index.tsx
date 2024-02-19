@@ -3,7 +3,7 @@ import { RiLockPasswordFill } from "react-icons/ri"
 import { useAppSelector, useAppDispatch } from "@/redux/store"
 import { requestLogout } from "@/redux/slice/userSlice"
 import Button from "@/components/atoms/forms/Buttons"
-import TextInputMole from "@/molecules/forms/TextInputMole"
+import TextInputMole from "@/components/molecules/forms/TextInputMol"
 import userInfoOrgStyles from "./UserInfoOrg.module.scss"
 
 function UserInfoOrg() {

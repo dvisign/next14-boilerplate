@@ -2,10 +2,10 @@ import { memo, useState } from "react"
 import { clsx } from "clsx"
 import Label from "@/components/atoms/forms/TextLabel"
 import TextInput from "@/atoms/forms/TextInput"
-import styles from "./TextInputMole.module.scss"
-import { TextInputMoleTypes } from "./TextInputMole.types"
+import styles from "./TextInputMol.module.scss"
+import { TextInputMolTypes } from "./TextInputMol.types"
 
-function TextInputMole({
+function TextInputMol({
   className = "",
   disabled = false,
   disabledColor = "",
@@ -15,7 +15,7 @@ function TextInputMole({
   onChange = () => null,
   value = "",
   ...props
-}: TextInputMoleTypes) {
+}: TextInputMolTypes) {
   const [focused, setFocused] = useState<boolean>(false)
   const wrapperClass = clsx(styles.textInputMoleStyle, { focused: focused }, { disabled })
   return (
@@ -38,4 +38,4 @@ function TextInputMole({
   )
 }
 
-export default memo(TextInputMole, (prevProps, nextProps) => prevProps.value === nextProps.value)
+export default memo(TextInputMol, (prevProps, nextProps) => prevProps.value === nextProps.value)
