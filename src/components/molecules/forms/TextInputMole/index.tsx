@@ -16,7 +16,7 @@ const TextInputMole = memo(
     ...props
   }: TextInputMoleTypes) => {
     const [focused, setFocused] = useState<boolean>(false)
-    const wrapperClass = clsx(styles.textInputMoleStyle, focused ? "focused" : "")
+    const wrapperClass = clsx(styles.textInputMoleStyle, { focused: focused })
     return (
       <div className={clsx(styles.textWrapperMoleStyle, className)} {...props}>
         {label && <Label label={label} />}
