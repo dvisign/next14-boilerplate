@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation"
 import { useInput } from "@/hooks"
 import { useAppSelector, useAppDispatch } from "@/redux/store"
 import { requestLogin } from "@/redux/slice/userSlice"
-import LoginFormOrg from "@/organisms/forms/LoginFormOrg"
+import LoginFormTemp from "@/templates/forms/LoginFormTemp"
 import { LoginFormTypes } from "@/components/organisms/forms/LoginFormOrg/LoginFormOrg.types"
 
 const LoginContext = createContext<LoginFormTypes | null>(null)
@@ -32,7 +32,7 @@ function Login() {
   }, [user])
   return (
     <LoginContext.Provider value={{ id, password, onChangeId, onChangePassword, onSubmit }}>
-      <LoginFormOrg />
+      <LoginFormTemp />
     </LoginContext.Provider>
   )
 }
