@@ -12,4 +12,4 @@ function TextInput(props: TextInputTypes) {
     </div>
   )
 }
-export default memo(TextInput, (prev, next) => prev.value === next.value)
+export default memo(TextInput)

@@ -1,5 +1,6 @@
-import React, { useState, useCallback } from "react"
+import React, { useCallback, useEffect } from "react"
 import { action } from "@storybook/addon-actions"
+import { useArgs } from "@storybook/preview-api"
 import type { Meta, StoryObj } from "@storybook/react"
 import TextInput from "@/atoms/forms/TextInput"
 import { TextInputTypes } from "@/atoms/forms/TextInput/TextInput.types"
@@ -15,23 +16,7 @@ const meta = {
 
 export default meta
 type Story = StoryObj<typeof meta>
-
-function onChange(val, setVal) {
-  setVal(val)
-  action("onChange value")(val)
-}
-function Template(args: TextInputTypes) {
-  const [value, setValue] = useState("")
-  const handleChange = useCallback(
-    e => {
-      onChange(e.target.value, setValue)
-    },
-    [value],
-  )
-  return <TextInput {...args} value={value} onChange={handleChange} />
-}
 export const Default: Story = {
-  render: (args: TextInputTypes) => Template(args),
   args: {
     value: "",
     borderSize: 1,
@@ -43,5 +28,19 @@ export const Default: Story = {
     height: 20,
     onChange: () => null,
     disabledColor: "rgba(204, 204, 204, 0.3)",
+  },
+  render: function Template(args: TextInputTypes) {
+    const [defaultArgs, setValue] = useArgs()
+    const handleChange = useCallback(
+      e => {
+        setValue({ ...defaultArgs, value: e.target.value })
+        action("onChange value")(e.target.value)
+      },
+      [defaultArgs],
+    )
+    useEffect(() => {
+      setValue(args)
+    }, [])
+    return <TextInput {...args} value={defaultArgs.value} onChange={handleChange} />
   },
 }

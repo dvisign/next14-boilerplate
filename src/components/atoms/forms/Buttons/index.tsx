@@ -1,4 +1,4 @@
-import React from "react"
+import { memo } from "react"
 import { useButton } from "@mui/base"
 import { clsx } from "clsx"
 import { ButtonBase } from "./Buttons.styles"
@@ -21,4 +21,4 @@ function Button({ children, disabled, ...props }: ButtonTypes) {
     </ButtonBase>
   )
 }
-export default Button
+export default memo(Button)

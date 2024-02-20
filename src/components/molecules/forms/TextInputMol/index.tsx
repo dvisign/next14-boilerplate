@@ -40,4 +40,4 @@ function TextInputMol({
   )
 }
 
-export default memo(TextInputMol, (prevProps, nextProps) => prevProps.value === nextProps.value)
+export default memo(TextInputMol)

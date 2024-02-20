@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { ButtonTypes } from "./types"
+import { ButtonTypes } from "./Buttons.types"
 
 export const ButtonBase = styled("button")<ButtonTypes>`
   padding: 8px 16px;

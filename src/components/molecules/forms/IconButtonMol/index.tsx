@@ -5,7 +5,7 @@ import { ButtonMolTypes } from "./IconButton.types"
 import styles from "./IconButtonMol.module.scss"
 
 // 기본 버튼
-function IconButtonMol({ disabled = false, className = "", children, icon, ...props }: ButtonMolTypes) {
+function IconButtonMol({ className = "", children, icon, ...props }: ButtonMolTypes) {
   return (
     <Button className={clsx(styles.baseIconButtonStyle, className)} {...props}>
       {icon && <span className={styles.iconStyle}>{icon}</span>}

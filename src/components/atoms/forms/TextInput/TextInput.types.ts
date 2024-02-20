@@ -3,7 +3,7 @@ export interface TextInputTypes extends InputHTMLAttributes<HTMLInputElement> {
   /**
    * value
    */
-  value: string
+  value: string | number | readonly string[]
   /**
    * border size
    */

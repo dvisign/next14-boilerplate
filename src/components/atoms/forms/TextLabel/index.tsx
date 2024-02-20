@@ -11,4 +11,4 @@ function TextLabel({ label, className = "", htmlFor }: TextLabelTypes) {
     )
   )
 }
-export default memo(TextLabel, (prev, next) => prev.label === next.label)
+export default memo(TextLabel)
