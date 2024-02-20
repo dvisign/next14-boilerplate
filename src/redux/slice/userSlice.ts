@@ -48,7 +48,6 @@ const userReducer = createSlice({
       .addCase(requestLogin.fulfilled, (state: defaultStateTypes, action: PayloadAction<UserResponseTypes>) => {
         const { payload } = action
         const { reason, status, user } = payload
-        console.log(payload)
         state.loading = false
         if (status === 200) {
           state.name = user.name
