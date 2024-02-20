@@ -1,8 +1,27 @@
-import { http, HttpResponse } from "msw"
+import { http, HttpResponseResolver, HttpResponse } from "msw"
 import user from "./data/user.json"
 
+type LoginRequest = {
+  id: string
+  password: string
+}
+type LoginUserResponseType = {
+  id: string
+  name: string
+}
+
+type SdkResponse = {
+  status: number
+  reason?: string
+  user?: LoginUserResponseType
+}
+
+function handleLoginRequest(resolver: HttpResponseResolver<never, LoginRequest, SdkResponse>) {
+  return http.post("http://localhost:9090/api/user", resolver)
+}
+
 export const handlers = [
-  http.post("http://localhost:9090/api/user", async ({ request }) => {
+  handleLoginRequest(async ({ request }) => {
     const requestBody = (await request.json()) as { id: string; password: string }
     const findUser = user.find(val => val.id === requestBody?.id && val.password === requestBody?.password)
     if (!findUser) {

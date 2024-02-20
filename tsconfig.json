@@ -32,7 +32,8 @@
       "@/hooks/*": ["src/hooks/*"],
       "@/assets/*": ["src/assets/*"],
       "@/redux/*": ["src/redux/*"],
-      "@/types/*": ["src/types/*"]
+      "@/types/*": ["src/types/*"],
+      "@/mocks/*": ["src/mocks/*"]
     },
     "plugins": [
       {

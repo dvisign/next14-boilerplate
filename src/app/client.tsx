@@ -6,19 +6,6 @@ import { useAppSelector } from "@/redux/store"
 function Client({ children }) {
   const user = useAppSelector(state => state.user)
   const router = useRouter()
-  if (process.env.NODE_ENV === "development") {
-    if (typeof window === "undefined") {
-      ;(async () => {
-        const { server } = await import("../mocks/http")
-        server.listen()
-      })()
-    } else {
-      ;(async () => {
-        const { worker } = await import("../mocks/browsers")
-        worker.start()
-      })()
-    }
-  }
   useEffect(() => {
     if (!user.id && !user.name) router.push("/")
   }, [user])

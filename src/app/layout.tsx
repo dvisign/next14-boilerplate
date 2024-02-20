@@ -1,5 +1,6 @@
 import { ReduxProvider, ReduxPersistGate } from "@/redux/reduxProvider"
 import Client from "@/app/client"
+import MswProvider from "@/mocks/MswProvider"
 import "@/assets/scss/common.scss"
 
 export const metadata = {
@@ -13,7 +14,9 @@ export default function RootLayout({ children }) {
       <body>
         <ReduxProvider>
           <ReduxPersistGate>
-            <Client>{children}</Client>
+            <Client>
+              <MswProvider>{children}</MswProvider>
+            </Client>
           </ReduxPersistGate>
         </ReduxProvider>
       </body>
