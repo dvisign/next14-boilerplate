@@ -15,26 +15,16 @@ const meta = {
 
 export default meta
 type Story = StoryObj<typeof meta>
-function onClick(val, setVal) {
-  const newCount = val + 1
-  setVal(newCount)
-  action("clicked")(newCount)
-}
-function Template(args: ButtonTypes) {
-  const [count, setCount] = useState(0)
-
-  const handleClick = () => {
-    onClick(count, setCount)
-  }
-  return (
-    <Button {...args} onClick={handleClick}>
-      {args.children}
-    </Button>
-  )
-}
 export const Default: Story = {
-  render: (args: ButtonTypes) => Template(args),
   args: {
     children: "Button",
+  },
+  render: function Template(args: ButtonTypes) {
+    const [count, setCount] = useState<number>(0)
+    function onClick() {
+      setCount(count + 1)
+      action("clicked")(count + 1)
+    }
+    return <Button onClick={onClick}>{args.children}</Button>
   },
 }

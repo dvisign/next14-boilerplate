@@ -22,7 +22,7 @@ function TextInputMol({
   return (
     <div className={clsx(styles.textWrapperMoleStyle, className)} {...props}>
       {label && <Label label={label} htmlFor={`${id}Input`} />}
-      <div className={wrapperClass}>
+      <div className={wrapperClass} style={{ backgroundColor: disabled ? disabledColor : "#fff" }}>
         {iconComponent && <span className={styles.iconStyle}>{iconComponent}</span>}
         <TextInput
           id={`${id}Input`}
@@ -33,7 +33,7 @@ function TextInputMol({
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
           disabled={disabled}
-          disabledColor={disabledColor}
+          backgroundColor={"transparent"}
         />
       </div>
     </div>

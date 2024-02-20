@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react"
+import React, { useCallback, ChangeEvent } from "react"
 import { action } from "@storybook/addon-actions"
 import { useArgs } from "@storybook/preview-api"
 import type { Meta, StoryObj } from "@storybook/react"
@@ -26,7 +26,7 @@ export const Default: Story = {
     display: "block",
     width: 100,
     height: 20,
-    onChange: () => null,
+    onChange: (e: ChangeEvent<HTMLInputElement>) => action("onChange value")(e.target.value),
     disabledColor: "rgba(204, 204, 204, 0.3)",
   },
   render: function Template(args: TextInputTypes) {
@@ -34,13 +34,10 @@ export const Default: Story = {
     const handleChange = useCallback(
       e => {
         setValue({ ...defaultArgs, value: e.target.value })
-        action("onChange value")(e.target.value)
+        defaultArgs.onChange(e)
       },
       [defaultArgs],
     )
-    useEffect(() => {
-      setValue(args)
-    }, [])
     return <TextInput {...args} value={defaultArgs.value} onChange={handleChange} />
   },
 }

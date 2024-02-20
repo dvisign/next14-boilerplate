@@ -25,6 +25,10 @@ export interface TextInputTypes extends InputHTMLAttributes<HTMLInputElement> {
    */
   disabledColor?: string | undefined
   /**
+   * background color
+   */
+  backgroundColor?: string | undefined
+  /**
    * disabled
    */
   disabled?: boolean

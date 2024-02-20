@@ -1,4 +1,5 @@
 import type { StorybookConfig } from "@storybook/nextjs"
+import path from "path"
 
 const config: StorybookConfig = {
   stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
@@ -8,6 +9,21 @@ const config: StorybookConfig = {
     "@storybook/addon-essentials",
     "@chromatic-com/storybook",
     "@storybook/addon-interactions",
+    {
+      name: "@storybook/addon-storysource",
+      options: {
+        rule: {
+          // test: [/\.stories\.jsx?$/], This is default
+          include: [path.resolve(__dirname, "../src/stories")], // You can specify directories
+        },
+        loaderOptions: {
+          prettierConfig: { printWidth: 80, singleQuote: false },
+        },
+        sourceLoaderOptions: {
+          injectStoryParameters: false,
+        },
+      },
+    },
   ],
   framework: {
     name: "@storybook/nextjs",

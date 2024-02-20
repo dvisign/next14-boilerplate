@@ -13,11 +13,12 @@ export const InputBaseStyle = styled("input")<TextInputTypes>`
   padding: 8px 12px 8px 12px;
   border-radius: 0;
   transition: 0.3s;
+  background-color: ${({ backgroundColor }) => (backgroundColor ? backgroundColor : "#fff")};
   &:focus {
     outline: ${({ borderSize }) => `${borderSize}px` || "1px"} ${({ borderStyle }) => borderStyle || "solid"}
       ${({ outLineColor }) => outLineColor || "#007bff"};
   }
   &: disabled {
-    backgroundcolor: ${({ disabledColor }) => (disabledColor ? disabledColor : "transparents")};
+    background-color: ${({ disabledColor }) => (disabledColor ? disabledColor : "transparent")};
   }
 `
