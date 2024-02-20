@@ -11,10 +11,9 @@ npm install
 ## 스크립트
 
 ```sh
-// fornt start
+// next start & msw mocking csr start
 npm run dev
-// front start & mock api server start
-npm run dev:mock
+
 // story book
 npm run stroybook
 ```
