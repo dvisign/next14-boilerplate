@@ -1,8 +1,18 @@
-import { ReactElement } from "react"
-import { TextInputTypes } from "@/components/atoms/forms/TextInput/TextInput.types"
+import { ReactElement, InputHTMLAttributes, ChangeEvent } from "react"
 
-export interface TextInputMolTypes extends TextInputTypes {
-  id?: string
+export interface TextInputMolTypes extends InputHTMLAttributes<HTMLInputElement> {
   iconComponent?: ReactElement | null
   label?: string
+  /**
+   * value
+   */
+  value: string | number | readonly string[]
+  /**
+   * disabled background color
+   */
+  disabledColor?: string | undefined
+  /**
+   * onchange
+   */
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void | undefined
 }

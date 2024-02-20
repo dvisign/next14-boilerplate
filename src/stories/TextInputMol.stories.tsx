@@ -19,8 +19,6 @@ export default meta
 type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
-    id: "test",
-    className: "",
     disabled: false,
     disabledColor: "rgba(204, 204, 204, 0.3)",
     type: "text",

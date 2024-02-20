@@ -6,7 +6,6 @@ import styles from "./TextInputMol.module.scss"
 import { TextInputMolTypes } from "./TextInputMol.types"
 
 function TextInputMol({
-  className = "",
   disabled = false,
   disabledColor = "",
   type = "text",
@@ -16,7 +15,7 @@ function TextInputMol({
   value = "",
   ...props
 }: TextInputMolTypes) {
-  const { id } = props
+  const { id, className } = props
   const [focused, setFocused] = useState<boolean>(false)
   const wrapperClass = clsx(styles.textInputMoleStyle, { focused: focused }, { disabled })
   return (
