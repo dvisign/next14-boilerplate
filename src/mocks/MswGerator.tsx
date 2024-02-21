@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 
 const isMockingMode = process.env.NEXT_PUBLIC_API_MOCKING === "enabled"
 let test = false
-function MswProvider({ children }) {
+function MswGerator() {
   const [useMsw, setUseMsw] = useState(() => !isMockingMode)
   useEffect(() => {
     const mswInit = async () => {
@@ -17,8 +17,9 @@ function MswProvider({ children }) {
     }
     if (!useMsw && !test) mswInit()
   }, [useMsw])
-  if (!useMsw && !test) return null
-  return <>{children}</>
+  // if (!useMsw && !test) return null
+  // return <>{children}</>
+  return null
 }
 
-export default MswProvider
+export default MswGerator

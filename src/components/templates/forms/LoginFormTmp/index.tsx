@@ -1,3 +1,4 @@
+"use client"
 import LoginFormOrg from "@/organisms/forms/LoginFormOrg"
 import loginFormStyles from "./LoginFormTmp.module.scss"
 function LoginFormTmp() {
