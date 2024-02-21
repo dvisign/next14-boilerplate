@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit"
 import axios from "axios"
 import { UserLoginTypes, UserResponseTypes } from "@/types/model/user/userModel"
 import { UserDefaultTypes } from "@/types/slice/user/userSliceTypes"
+import { debounceFetchApis } from "@/modules"
 
 interface defaultStateTypes extends UserDefaultTypes {
   loading: boolean
@@ -17,7 +18,13 @@ export const requestLogin = createAsyncThunk<UserResponseTypes, UserLoginTypes, 
   "user/login",
   async (payload: UserLoginTypes, { rejectWithValue }) => {
     try {
-      const response = await axios.post("http://localhost:9090/api/user", payload)
+      const response = await debounceFetchApis({
+        url: "/api/user",
+        method: "post",
+        data: {
+          ...payload,
+        },
+      })
       return response.data // 성공 시 응답 데이터 반환
     } catch (err) {
       if (axios.isAxiosError(err)) {
@@ -32,24 +39,24 @@ export const requestLogin = createAsyncThunk<UserResponseTypes, UserLoginTypes, 
   },
 )
 
-export const requestLogout = createAsyncThunk<UserResponseTypes, UserLoginTypes, { rejectValue: UserResponseTypes }>(
-  "user/logout",
-  async (_, { rejectWithValue }) => {
-    try {
-      const response = await axios.get("http://localhost:9090/api/user/logout")
-      return response.data // 성공 시 응답 데이터 반환
-    } catch (err) {
-      if (axios.isAxiosError(err)) {
-        // Axios 에러 처리
-        // 여기서 YourErrorType은 에러 처리에 사용할 타입이며, 적절히 정의해야 합니다.
-        return rejectWithValue(err.response?.data)
-      } else {
-        // 기타 에러 처리
-        return rejectWithValue({ status: 404, reason: "An unknown error occurred" })
-      }
+export const requestLogout = createAsyncThunk("user/logout", async (_, { rejectWithValue }) => {
+  try {
+    const response = await debounceFetchApis({
+      url: "/api/user/logout",
+      method: "get",
+    })
+    return response.data // 성공 시 응답 데이터 반환
+  } catch (err) {
+    if (axios.isAxiosError(err)) {
+      // Axios 에러 처리
+      // 여기서 YourErrorType은 에러 처리에 사용할 타입이며, 적절히 정의해야 합니다.
+      return rejectWithValue(err.response?.data)
+    } else {
+      // 기타 에러 처리
+      return rejectWithValue({ status: 404, reason: "An unknown error occurred" })
     }
-  },
-)
+  }
+})
 
 const userReducer = createSlice({
   name: "user",

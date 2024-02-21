@@ -1,6 +1,10 @@
 import axios from "axios"
 
+const setTimer = 500
+let timer = null
+let throttled = false
 const setURL = (config, api = "") => {
+  console.log(api)
   if (config?.url) {
     config.url = `${process.env.NEXT_PUBLIC_API_URL}${config.url}`
   }
@@ -68,12 +72,14 @@ defaultApiService.interceptors.response.use(
 const throttleApiService = axios.create({ ...setBaseOptions() })
 throttleApiService.interceptors.request.use(
   async config => {
-    return setURL(config, "API")
-    // if (getAccessToken.value) {
-    //   return setURL(config, "API")
-    // } else {
-    //   return false
-    // }
+    if (throttled) {
+      return Promise.reject("Throttled request ignored")
+    }
+    throttled = true
+    setTimeout(() => {
+      throttled = false
+    }, setTimer)
+    return setURL(config)
   },
   async error => {
     console.log(error)
@@ -94,12 +100,12 @@ throttleApiService.interceptors.response.use(
 const debounceApiService = axios.create({ ...setBaseOptions() })
 debounceApiService.interceptors.request.use(
   async config => {
-    return setURL(config, "API")
-    // if (getAccessToken.value) {
-    //   return setURL(config, "API")
-    // } else {
-    //   return false
-    // }
+    clearTimeout(timer)
+    return new Promise(resolve => {
+      timer = setTimeout(() => {
+        resolve(setURL(config))
+      }, setTimer)
+    })
   },
   async error => {
     console.log(error)
