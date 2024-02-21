@@ -33,7 +33,8 @@
       "@/assets/*": ["src/assets/*"],
       "@/redux/*": ["src/redux/*"],
       "@/types/*": ["src/types/*"],
-      "@/mocks/*": ["src/mocks/*"]
+      "@/mocks/*": ["src/mocks/*"],
+      "@/modules/*": ["src/modules/*"]
     },
     "plugins": [
       {

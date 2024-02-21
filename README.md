@@ -71,6 +71,9 @@ my-app
     │   ├── browsers.ts
     │   ├── handlers.ts
     │   └── http.ts
+    ├── modules
+    │   ├── apis.ts
+    │   └── index.ts
     ├── redux
     │   ├── slice
     │   ├── reduxProvider.tsx

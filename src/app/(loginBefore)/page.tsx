@@ -6,6 +6,7 @@ import { useAppSelector, useAppDispatch } from "@/redux/store"
 import { requestLogin } from "@/redux/slice/userSlice"
 import LoginFormTemp from "@/components/templates/forms/LoginFormTmp"
 import { LoginFormTypes } from "@/components/organisms/forms/LoginFormOrg/LoginFormOrg.types"
+import { defaultFetchApis } from "@/modules"
 
 const LoginContext = createContext<LoginFormTypes | null>(null)
 
@@ -16,20 +17,29 @@ function LoginPage() {
   const dispatch = useAppDispatch()
   const user = useAppSelector(state => state.user)
   const onSubmit = useCallback(
-    e => {
+    async e => {
       e.preventDefault()
-      dispatch(
-        requestLogin({
+      // dispatch(
+      //   requestLogin({
+      //     id,
+      //     password,
+      //   }),
+      // )
+      const rs = await defaultFetchApis({
+        url: "/api/user",
+        method: "post",
+        data: {
           id,
           password,
-        }),
-      )
+        },
+      })
+      console.log(rs)
     },
     [id, password],
   )
-  useEffect(() => {
-    if (user.id && user.name) router.push("/info")
-  }, [user])
+  // useEffect(() => {
+  //   if (user.id && user.name) router.push("/info")
+  // }, [user])
   return (
     <LoginContext.Provider value={{ id, password, onChangeId, onChangePassword, onSubmit }}>
       <LoginFormTemp />
