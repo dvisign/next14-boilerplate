@@ -4,6 +4,8 @@ export async function initMock() {
     server.listen()
   } else {
     const { worker } = await import("./browsers")
-    worker.start()
+    worker.start({
+      onUnhandledRequest: "bypass",
+    })
   }
 }
