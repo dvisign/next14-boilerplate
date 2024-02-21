@@ -8,7 +8,7 @@ function TextInput(props: TextInputTypes) {
   const inputProps = getInputProps()
   return (
     <div {...getRootProps()}>
-      <InputBaseStyle {...props} {...inputProps} />
+      <InputBaseStyle {...props} autoComplete={props.type === "password" ? "off" : ""} {...inputProps} />
     </div>
   )
 }

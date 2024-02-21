@@ -13,18 +13,19 @@ function TextInputMol({
   iconComponent = null,
   onChange = () => null,
   value = "",
+  className = "",
   ...props
 }: TextInputMolTypes) {
-  const { id, className } = props
+  const { id } = props
   const [focused, setFocused] = useState<boolean>(false)
   const wrapperClass = clsx(styles.textInputMoleStyle, { focused: focused }, { disabled })
   return (
     <div className={clsx(styles.textWrapperMoleStyle, className)} {...props}>
-      {label && <Label label={label} htmlFor={`${id}Input`} />}
+      {label && <Label label={label} htmlFor={id ? `${id}Input` : ""} />}
       <div className={wrapperClass} style={{ backgroundColor: disabled ? disabledColor : "#fff" }}>
         {iconComponent && <span className={styles.iconStyle}>{iconComponent}</span>}
         <TextInput
-          id={`${id}Input`}
+          id={id ? `${id}Input` : ""}
           type={type}
           onChange={onChange}
           value={value}

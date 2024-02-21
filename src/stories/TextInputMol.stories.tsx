@@ -1,6 +1,7 @@
 import React, { useCallback, ChangeEvent } from "react"
 import { action } from "@storybook/addon-actions"
 import { useArgs } from "@storybook/preview-api"
+import { userEvent, within } from "@storybook/testing-library"
 import type { Meta, StoryObj } from "@storybook/react"
 import { FaUser } from "react-icons/fa"
 import TextInputMol from "@/molecules/forms/TextInputMol"
@@ -37,5 +38,9 @@ export const Default: Story = {
       [defaultArgs],
     )
     return <TextInputMol {...args} value={defaultArgs.value} onChange={handleChange} />
+  },
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement)
+    await userEvent.type(canvas.getByTestId("another-element"), "random value")
   },
 }

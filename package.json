@@ -22,6 +22,7 @@
     "@mui/material": "^5.15.3",
     "@mui/system": "^5.15.7",
     "@reduxjs/toolkit": "^1.9.5",
+    "@storybook/testing-library": "^0.2.2",
     "autoprefixer": "^10.4.17",
     "axios": "^1.6.5",
     "babel-loader": "^9.1.3",

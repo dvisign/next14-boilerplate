@@ -10,14 +10,21 @@ type LoginUserResponseType = {
   name: string
 }
 
-type SdkResponse = {
+type LoginResponse = {
   status: number
   reason?: string
   user?: LoginUserResponseType
 }
+type LogOutResponse = {
+  status: number
+  reason?: string
+}
 
-function handleLoginRequest(resolver: HttpResponseResolver<never, LoginRequest, SdkResponse>) {
+function handleLoginRequest(resolver: HttpResponseResolver<never, LoginRequest, LoginResponse>) {
   return http.post("http://localhost:9090/api/user", resolver)
+}
+function handleLogOutRequest(resolver: HttpResponseResolver<never, LogOutResponse>) {
+  return http.get("http://localhost:9090/api/user/logout", resolver)
 }
 
 export const handlers = [
@@ -52,7 +59,7 @@ export const handlers = [
       },
     )
   }),
-  http.get("http://localhost:9090/api/user/logout", () => {
+  handleLogOutRequest(async () => {
     return HttpResponse.json({ status: 200, message: "로그아웃 되었습니다." })
   }),
 ]

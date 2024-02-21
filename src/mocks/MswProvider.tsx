@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from "react"
 
-const isMockingMode = process.env.NODE_ENV === "development"
-
+const isMockingMode = process.env.NEXT_PUBLIC_API_MOCKING === "enabled"
+let test = false
 function MswProvider({ children }) {
   const [useMsw, setUseMsw] = useState(() => !isMockingMode)
   useEffect(() => {
@@ -12,11 +12,12 @@ function MswProvider({ children }) {
         const initMock = await import("./index").then(rs => rs.initMock)
         await initMock()
         setUseMsw(true)
+        test = true
       }
     }
-    if (!useMsw) mswInit()
+    if (!useMsw && !test) mswInit()
   }, [useMsw])
-  if (!useMsw) return null
+  if (!useMsw && !test) return null
   return <>{children}</>
 }
 
