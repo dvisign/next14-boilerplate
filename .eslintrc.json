@@ -33,14 +33,14 @@
     "prettier"
   ],
   "plugins": [
+    "@typescript-eslint",
     "react",
-    "prettier",
     "autofix",
     "react-hooks",
-    "@typescript-eslint"
+    "prettier"
   ],
   "rules": {
-//    "@typescript-eslint/no-explicit-any": "off",
+    // "@typescript-eslint/no-explicit-any": "off",
     "prettier/prettier": [
       "error"
     ],
@@ -61,14 +61,14 @@
         "html": true
       }
     ],
-    "autofix/no-unused-vars": ["warn", {
-        "argsIgnorePattern": "^_",
+    "@typescript-eslint/no-unused-vars": ["warn", {
+        "argsIgnorePattern": "^_|^e$",
         "ignoreRestSiblings": true,
-        "destructuredArrayIgnorePattern": "^_"
+        "destructuredArrayIgnorePattern": "^_|^e$"
       }
     ],
     "brace-style": ["error", "stroustrup", {
-        "allowSingleLine": true
+        "allowSingleLine": false
       }
     ],
     "indent": ["error", 2, { "ignoreComments": true }]

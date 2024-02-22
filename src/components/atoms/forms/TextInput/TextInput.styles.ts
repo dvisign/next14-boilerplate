@@ -18,7 +18,7 @@ export const InputBaseStyle = styled("input")<TextInputTypes>`
     outline: ${({ borderSize }) => `${borderSize}px` || "1px"} ${({ borderStyle }) => borderStyle || "solid"}
       ${({ outLineColor }) => outLineColor || "#007bff"};
   }
-  &: disabled {
+  &:disabled {
     background-color: ${({ disabledColor }) => (disabledColor ? disabledColor : "transparent")};
   }
 `

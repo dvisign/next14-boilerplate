@@ -13,7 +13,7 @@ const IS_MOCKED_RESPONSE = Symbol('isMockedResponse')
 const activeClientIds = new Set()
 
 self.addEventListener('install', function () {
-  self.skipWaiting()
+  self.skipWaiting().then(r => r)
 })
 
 self.addEventListener('activate', function (event) {
@@ -21,7 +21,7 @@ self.addEventListener('activate', function (event) {
 })
 
 self.addEventListener('message', async function (event) {
-  const clientId = event.source.id
+  const clientId = event?.source?.id || ""
 
   if (!clientId || !self.clients) {
     return
@@ -41,7 +41,7 @@ self.addEventListener('message', async function (event) {
     case 'KEEPALIVE_REQUEST': {
       sendToClient(client, {
         type: 'KEEPALIVE_RESPONSE',
-      })
+      }).then(r => r)
       break
     }
 
@@ -49,7 +49,7 @@ self.addEventListener('message', async function (event) {
       sendToClient(client, {
         type: 'INTEGRITY_CHECK_RESPONSE',
         payload: INTEGRITY_CHECKSUM,
-      })
+      }).then(r => r)
       break
     }
 
@@ -59,7 +59,7 @@ self.addEventListener('message', async function (event) {
       sendToClient(client, {
         type: 'MOCKING_ENABLED',
         payload: true,
-      })
+      }).then(r => r)
       break
     }
 
@@ -77,7 +77,7 @@ self.addEventListener('message', async function (event) {
 
       // Unregister itself when there are no more clients
       if (remainingClients.length === 0) {
-        self.registration.unregister()
+        self.registration.unregister().then(r => r)
       }
 
       break
@@ -119,7 +119,7 @@ async function handleRequest(event, requestId) {
   // Ensure MSW is active and ready to handle the message, otherwise
   // this message will pend indefinitely.
   if (client && activeClientIds.has(client.id)) {
-    ;(async function () {
+    await (async function () {
       const responseClone = response.clone()
 
       sendToClient(
@@ -137,7 +137,7 @@ async function handleRequest(event, requestId) {
           },
         },
         [responseClone.body],
-      )
+      ).then(r => r)
     })()
   }
 

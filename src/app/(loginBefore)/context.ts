@@ -4,8 +4,8 @@ import { LoginFormTypes } from "@/components/organisms/forms/LoginFormOrg/LoginF
 export const LoginContext = createContext<LoginFormTypes>({
   id: "",
   password: "",
-  onChangeId: () => {},
-  onChangePassword: () => {},
-  onSubmit: () => {},
+  onChangeId: e => {},
+  onChangePassword: e => {},
+  onSubmit: e => {},
 })
 export const useLogin = () => useContext(LoginContext)

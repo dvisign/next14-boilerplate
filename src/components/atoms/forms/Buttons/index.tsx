@@ -14,7 +14,7 @@ function Button({ children, disabled, ...props }: ButtonTypes) {
     focusVisible,
     [props.className]: !!props.className,
   }
-  const rootProps = { ...getRootProps(), ...props, type: props?.type ? props?.type : "submit" }
+  const rootProps = { ...getRootProps(), ...props, type: props?.type ? props.type : "submit" }
   return (
     <ButtonBase {...rootProps} className={clsx(classes)}>
       {children}
