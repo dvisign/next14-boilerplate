@@ -3,7 +3,7 @@ import { action } from "@storybook/addon-actions"
 import { useArgs } from "@storybook/preview-api"
 import type { Meta, StoryObj } from "@storybook/react"
 import TextInput from "@/atoms/forms/TextInput"
-import { TextInputTypes } from "@/atoms/forms/TextInput/TextInput.types"
+import { TextInputProps } from "@/atoms/forms/TextInput/TextInput.types"
 
 const meta = {
   title: "Component/Atoms/TextInput",
@@ -29,7 +29,7 @@ export const Default: Story = {
     onChange: (e: ChangeEvent<HTMLInputElement>) => action("onChange value")(e.target.value),
     disabledColor: "rgba(204, 204, 204, 0.3)",
   },
-  render: function Template(args: TextInputTypes) {
+  render: function Template(args: TextInputProps) {
     const [defaultArgs, setValue] = useArgs()
     const handleChange = useCallback(
       e => {

@@ -1,9 +1,9 @@
 import { memo } from "react"
 import { useInput } from "@mui/base"
 import { InputBaseStyle } from "./TextInput.styles"
-import { TextInputTypes } from "./TextInput.types"
+import { TextInputProps } from "./TextInput.types"
 
-function TextInput(props: TextInputTypes) {
+function TextInput(props: TextInputProps) {
   const { getRootProps, getInputProps } = useInput(props)
   const inputProps = getInputProps()
   return (
