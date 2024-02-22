@@ -7,7 +7,7 @@ module.exports = {
   compiler: {
     emotion: true,
   },
-  reactStrictMode: true,
+  reactStrictMode: false,
   swcMinify: true,
   // webpack: (config, { isServer }) => {
   //   if (!isServer) {
@@ -29,3 +29,5 @@ module.exports = {
   //   return config
   // },
 }
+
+

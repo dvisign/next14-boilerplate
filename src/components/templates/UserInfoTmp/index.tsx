@@ -1,8 +1,8 @@
-import userInfoStyles from "./UserInfoTmp.module.scss"
+import styles from "./UserInfoTmp.module.scss"
 import UserInfoOrg from "@/components/organisms/UserInfo"
 function UserInfoTmp() {
   return (
-    <div className={userInfoStyles.userInfoWrapper}>
+    <div className={styles.userInfoWrapper}>
       <UserInfoOrg />
     </div>
   )
