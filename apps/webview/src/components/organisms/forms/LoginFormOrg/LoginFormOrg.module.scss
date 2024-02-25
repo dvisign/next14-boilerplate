@@ -1,0 +1,12 @@
+.form {
+}
+.formLine {
+  &:not(:last-child) {
+    margin-bottom: 10px;
+  }
+  &:global(.submitBtn) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

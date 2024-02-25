@@ -1,0 +1,5 @@
+.vscoode
+dist
+node_modules
+
+*.json
