@@ -1,0 +1,11 @@
+{
+  "display": "React Library",
+  "extends": "./base.json",
+  "compilerOptions": {
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  }
+}
