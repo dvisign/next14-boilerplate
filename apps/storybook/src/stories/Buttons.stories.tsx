@@ -1,30 +1,29 @@
-import React, { useState } from "react";
-import { action } from "@storybook/addon-actions";
-import type { Meta, StoryObj } from "@storybook/react";
-// import Button from "@/atoms/forms/Buttons"
-import Buttons, { ButtonTypes } from "@repo/ui/Buttons";
+import React, { useState } from "react"
+import { action } from "@storybook/addon-actions"
+import type { Meta, StoryObj } from "@storybook/react"
+import Button, { ButtonTypes } from "@repo/ui/Buttons"
 
 const meta = {
   title: "Component/Atoms/Button",
-  component: Buttons,
+  component: Button,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof Buttons>;
+} satisfies Meta<typeof Button>
 
-export default meta;
-type Story = StoryObj<typeof meta>;
+export default meta
+type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     children: "Button",
   },
   render: function Template(args: ButtonTypes) {
-    const [count, setCount] = useState<number>(0);
+    const [count, setCount] = useState<number>(0)
     function onClick() {
-      setCount(count + 1);
-      action("clicked")(count + 1);
+      setCount(count + 1)
+      action("clicked")(count + 1)
     }
-    return <Buttons onClick={onClick}>{args.children}</Buttons>;
+    return <Button onClick={onClick}>{args.children}</Button>
   },
-};
+}

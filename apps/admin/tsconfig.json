@@ -1,25 +1,11 @@
 {
+  "extends": "@repo/typescript-config/nextjs.json",
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext",
-      "es6"
+    "plugins": [
+      {
+        "name": "next"
+      }
     ],
-    "allowJs": true,
-    "strict": false,
-    "noEmit": true,
-    "incremental": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
@@ -35,21 +21,8 @@
       "@/types/*": ["src/types/*"],
       "@/mocks/*": ["src/mocks/*"],
       "@/modules/*": ["src/modules/*"]
-    },
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    }
   },
-  "include": [
-    "**/*.js",
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+  "include": ["next-env.d.ts", "next.config.js", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
 }

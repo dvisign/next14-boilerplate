@@ -18,17 +18,20 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "./",
-    "paths": {},
-    "declaration": true,
-    "declarationMap": true,
-    "moduleDetection": "force"
+    "paths": {
+      "@/*": ["/*"],
+      "@repo/ui/*": ["../ui/*"],
+      "@/redux/*": ["../redux/*"],
+      "@/webview/*": ["../../apps/webview/app/*"],
+      "@/admin/*": ["../../apps/admin/*"],
+      "@/storybook/*": ["../../apps/storybook/*"]
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
-  "include": [
-    "**/*.js",
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts"
-  ],
+  "include": ["**/*.js", "next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

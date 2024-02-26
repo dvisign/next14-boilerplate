@@ -3,13 +3,16 @@ package-lock.json
 .next
 .vscode
 .idea
+.turbo
 apps/webview/node_modules
 apps/webview/package-lock.json
 apps/webview/.next
 apps/webview/.vscode
 apps/webview/.idea
+apps/webview/.turbo
 apps/admin/node_modules
 apps/admin/package-lock.json
 apps/admin/.next
 apps/admin/.vscode
 apps/admin/.idea
+apps/admin/.turbo
