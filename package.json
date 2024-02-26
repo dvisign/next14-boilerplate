@@ -26,7 +26,6 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "@babel/preset-env": "^7.23.9",
     "@babel/preset-react": "^7.23.3",
@@ -38,7 +37,9 @@
     "@types/react-redux": "^7.1.33",
     "typescript": "^5.3.3",
     "prettier": "^3.1.1",
-    "turbo": "latest"
+    "turbo": "latest",
+    "@mswjs/http-middleware": "^0.9.1",
+    "msw": "^2.2.0"
   },
   "engines": {
     "node": ">=18"

@@ -6,7 +6,6 @@ import { useAppSelector, useAppDispatch } from "@/redux/store"
 import { requestLogin } from "@/redux/slice/userSlice"
 import LoginFormTemp from "@/components/templates/forms/LoginFormTmp"
 import { LoginContext } from "./context"
-import Button from "@repo/ui/Buttons"
 
 function LoginPage() {
   const [id, onChangeId] = useInput<string>("")
@@ -31,7 +30,6 @@ function LoginPage() {
   }, [user])
   return (
     <LoginContext.Provider value={{ id, password, onChangeId, onChangePassword, onSubmit }}>
-      <Button>webview</Button>
       <LoginFormTemp />
     </LoginContext.Provider>
   )

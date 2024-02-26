@@ -9,7 +9,6 @@
     "./Buttons": "./src/forms/Buttons/index.tsx"
   },
   "devDependencies": {
-    "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "@turbo/gen": "^1.11.3",
     "@types/node": "^20.10.6",

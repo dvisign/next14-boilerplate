@@ -1,10 +1,11 @@
 {
-  "name": "storybook",
+  "name": "sb",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "storybook dev -p 6006",
+    "storybook": "npx start-storybook -p 6006",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,7 +16,6 @@
     "@storybook/testing-library": "^0.2.2"
   },
   "devDependencies": {
-    "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "@chromatic-com/storybook": "^1.1.9",
     "@storybook/addon-actions": "^7.6.17",

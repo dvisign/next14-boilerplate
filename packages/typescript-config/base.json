@@ -20,9 +20,9 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["/*"],
-      "@repo/ui/*": ["../ui/*"],
-      "@/redux/*": ["../redux/*"],
-      "@/webview/*": ["../../apps/webview/app/*"],
+      "@repo/ui/*": ["../ui/src/*"],
+      "@repo/msw/*": ["../msw/*"],
+      "@/webview/*": ["../../apps/webview/*"],
       "@/admin/*": ["../../apps/admin/*"],
       "@/storybook/*": ["../../apps/storybook/*"]
     },
