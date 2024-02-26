@@ -3,20 +3,20 @@
 import { useState, useEffect } from "react"
 
 const isMockingMode = process.env.NEXT_PUBLIC_API_MOCKING === "enabled"
-let test = false
-function MswGenerator() {
+let serverInit = false
+function MswGenerator({ handlers }) {
   const [useMsw, setUseMsw] = useState(() => !isMockingMode)
   useEffect(() => {
     const mswInit = async () => {
-      if (isMockingMode) {
+      if (isMockingMode && handlers) {
         const initMock = await import("./initServer").then(rs => rs.initMock)
-        await initMock()
+        await initMock(handlers)
         setUseMsw(true)
-        test = true
+        serverInit = true
       }
     }
-    if (!useMsw && !test) mswInit()
-  }, [useMsw])
+    if (!useMsw && !serverInit) mswInit()
+  }, [useMsw, handlers])
   // if (!useMsw && !test) return null
   // return <>{children}</>
   return null

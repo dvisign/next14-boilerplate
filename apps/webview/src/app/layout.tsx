@@ -1,6 +1,5 @@
 import { ReduxProvider, ReduxPersistGate } from "@/redux/reduxProvider"
 import Client from "@/app/client"
-import MswGenerator from "@repo/msw"
 import "@/assets/scss/common.scss"
 
 export const metadata = {
@@ -28,7 +27,6 @@ export default function RootLayout({ children }) {
             </Client>
           </ReduxPersistGate>
         </ReduxProvider>
-        <MswGenerator />
       </body>
     </html>
   )
