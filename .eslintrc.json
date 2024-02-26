@@ -7,9 +7,6 @@
       "jsx": true
     }
   },
-  "ignorePatterns": [
-    "next.config.js"
-  ],
   "settings": {
     "import/resolver": {
       "typescript": {
@@ -32,45 +29,26 @@
     "next/core-web-vitals",
     "prettier"
   ],
-  "plugins": [
-    "@typescript-eslint",
-    "react",
-    "autofix",
-    "react-hooks",
-    "prettier"
-  ],
+  "plugins": ["react", "prettier", "autofix", "react-hooks", "@typescript-eslint"],
   "rules": {
-    // "@typescript-eslint/no-explicit-any": "off",
-    "prettier/prettier": [
-      "error"
-    ],
+    "prettier/prettier": ["error"],
     "react/react-in-jsx-scope": "off",
     "spaced-comment": "warn",
-    "quotes": [
-      "error",
-      "double"
-    ],
+    "quotes": ["error", "double"],
     "no-console": "warn",
     "no-redeclare": "warn",
     "react/display-name": "off",
-    "react/prop-types": "warn",
+    "react/prop-types": "off",
     "react/jsx-key": "warn",
     "arrow-body-style": "off",
-    "react/self-closing-comp": ["error", {
-        "component": true,
-        "html": true
-      }
-    ],
-    "@typescript-eslint/no-unused-vars": ["warn", {
-        "argsIgnorePattern": "^_|^e$",
+    "react/self-closing-comp": ["error", { "component": true, "html": true }],
+    "autofix/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
         "ignoreRestSiblings": true,
-        "destructuredArrayIgnorePattern": "^_|^e$"
+        "destructuredArrayIgnorePattern": "^_"
       }
-    ],
-    "brace-style": ["error", "stroustrup", {
-        "allowSingleLine": false
-      }
-    ],
-    "indent": ["error", 2, { "ignoreComments": true }]
+    ]
   }
 }
