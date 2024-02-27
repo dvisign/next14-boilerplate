@@ -6,4 +6,9 @@ module.exports = {
   parserOptions: {
     project: true,
   },
+  "import/resolver": {
+    typescript: {
+      project: "./tsconfig.json",
+    },
+  },
 }

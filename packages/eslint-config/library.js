@@ -1,4 +1,4 @@
-import { resolve } from "node:path"
+const { resolve } = require("path")
 
 const project = resolve(process.cwd(), "tsconfig.json")
 
@@ -37,7 +37,9 @@ module.exports = {
   },
   ignorePatterns: [
     // Ignore dotfiles
-    ".*.js",
+    "**/.*.js",
+    "**/.*.ts",
+    "**/.*.tsx",
     "node_modules/",
     "dist/",
   ],
