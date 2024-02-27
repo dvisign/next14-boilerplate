@@ -9,6 +9,7 @@ module.exports = {
     "plugin:jsx-a11y/recommended",
     "next",
     "next/core-web-vitals",
+    "@repo/eslint-config/library.js",
     "prettier",
   ],
   globals: {
