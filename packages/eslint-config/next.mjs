@@ -1,5 +1,6 @@
-/** @type {import("eslint").Linter.Config} */
-module.exports = {
+import libraryConfig from "@repo/eslint-config/library.mjs"
+
+export default {
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -9,7 +10,7 @@ module.exports = {
     "plugin:jsx-a11y/recommended",
     "next",
     "next/core-web-vitals",
-    "@repo/eslint-config/library.js",
+    libraryConfig,
     "prettier",
   ],
   globals: {

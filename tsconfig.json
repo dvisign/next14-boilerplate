@@ -1,5 +1,14 @@
 {
   "extends": "@repo/typescript-config/base.json",
-  "include": ["**/*.js", "next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "**/*.js",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "packages/eslint-config/react-internal.mjs",
+    "packages/eslint-config/next.mjs",
+    "packages/eslint-config/library.mjs"
+  ],
   "exclude": ["node_modules"]
 }

@@ -1,9 +1,8 @@
-const { resolve } = require("path")
+import { resolve } from "node:path"
 
 const project = resolve(process.cwd(), "tsconfig.json")
 
-/** @type {import("eslint").Linter.Config} */
-module.exports = {
+export default {
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -35,14 +34,7 @@ module.exports = {
       },
     },
   },
-  ignorePatterns: [
-    // Ignore dotfiles
-    "**/.*.js",
-    "**/.*.ts",
-    "**/.*.tsx",
-    "node_modules/",
-    "dist/",
-  ],
+  ignorePatterns: ["**/.*.js", "**/.*.ts", "**/.*.tsx", "node_modules/", "dist/"],
   overrides: [
     {
       files: ["*.js?(x)", "*.ts?(x)"],

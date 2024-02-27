@@ -12,6 +12,7 @@ function Client({ children }: { children: ReactNode }) {
     if (!user.id && !user.name) router.push("/")
   }, [user, router])
   // 로그아웃일때 레이아웃
+
   return (
     <>
       {!user.name || !user.id ? <div>{children}</div> : children}
