@@ -20,21 +20,4 @@ module.exports = {
     node: true,
     browser: true,
   },
-  plugins: ["react", "prettier", "autofix", "react-hooks", "@typescript-eslint"],
-  settings: {
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"],
-    },
-    "import/resolver": {
-      typescript: {
-        alwaysTryTypes: true,
-      },
-    },
-  },
-  ignorePatterns: [
-    // Ignore dotfiles
-    ".*.js",
-    "node_modules/",
-  ],
-  overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
 }
