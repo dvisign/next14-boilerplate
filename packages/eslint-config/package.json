@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "files": [
-    "library.js",
-    "next.js",
-    "react-internal.js"
+    "library.mjs",
+    "next.mjs",
+    "react-internal.mjs"
   ]
 }
