@@ -12,17 +12,9 @@ function Client({ children }: { children: ReactNode }) {
     if (!user.id && !user.name) router.push("/")
   }, [user, router])
   // 로그아웃일때 레이아웃
-  if (!user.name || !user.id)
-    return (
-      <div>
-        {children}
-        <MswGenerator handlers={handlers} />
-      </div>
-    )
-  // 로그인 후 레이아웃
   return (
     <>
-      {children}
+      {!user.name || !user.id ? <div>{children}</div> : children}
       <MswGenerator handlers={handlers} />
     </>
   )
