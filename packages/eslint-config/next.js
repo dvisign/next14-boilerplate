@@ -1,6 +1,4 @@
-import libraryConfig from "@repo/eslint-config/library.mjs"
-
-export default {
+module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -10,12 +8,12 @@ export default {
     "plugin:jsx-a11y/recommended",
     "next",
     "next/core-web-vitals",
-    libraryConfig,
+    "./library",
     "prettier",
   ],
   globals: {
-    React: true,
-    JSX: true,
+    React: "writable",
+    JSX: "writable",
   },
   env: {
     node: true,

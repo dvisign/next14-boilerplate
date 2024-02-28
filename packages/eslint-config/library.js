@@ -1,8 +1,8 @@
-import { resolve } from "node:path"
+const { resolve } = require("path")
 
 const project = resolve(process.cwd(), "tsconfig.json")
 
-export default {
+module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -16,8 +16,8 @@ export default {
   ],
   plugins: ["react", "prettier", "autofix", "react-hooks", "@typescript-eslint"],
   globals: {
-    React: true,
-    JSX: true,
+    React: "writable",
+    JSX: "writable",
   },
   env: {
     browser: true,

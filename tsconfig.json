@@ -6,9 +6,9 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "packages/eslint-config/react-internal.mjs",
-    "packages/eslint-config/next.mjs",
-    "packages/eslint-config/library.mjs"
+    "packages/eslint-config/react-internal.js",
+    "packages/eslint-config/next.js",
+    "packages/eslint-config/library.js"
   ],
   "exclude": ["node_modules"]
 }
