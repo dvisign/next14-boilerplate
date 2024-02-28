@@ -6,5 +6,9 @@
     "library.js",
     "next.js",
     "react-internal.js"
-  ]
+  ],
+  "devDependencies": {
+    "@vercel/style-guide": "^5.1.0",
+    "eslint-config-turbo": "^1.11.3"
+  }
 }

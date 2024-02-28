@@ -17,21 +17,10 @@
     "jsx": "preserve",
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "baseUrl": "./",
-    "paths": {
-      "@/*": ["/*"],
-      "@repo/ui/*": ["../ui/src/*"],
-      "@repo/msw/*": ["../msw/*"],
-      "@/webview/*": ["../../apps/webview/*"],
-      "@/admin/*": ["../../apps/admin/*"],
-      "@/storybook/*": ["../../apps/storybook/*"]
-    },
     "plugins": [
       {
         "name": "next"
       }
     ]
   },
-  "include": ["**/*.js", "next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
 }

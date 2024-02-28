@@ -1,15 +1,12 @@
+const { resolve } = require("node:path");
+
+const project = resolve(process.cwd(), "tsconfig.json");
+
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
   extends: [
-    "eslint:recommended",
-    "plugin:react/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:import/recommended",
-    "plugin:import/typescript",
-    "plugin:jsx-a11y/recommended",
-    "next",
-    "next/core-web-vitals",
+    require.resolve("@vercel/style-guide/eslint/next"),
     "./library",
-    "prettier",
   ],
   globals: {
     React: "writable",
@@ -19,4 +16,18 @@ module.exports = {
     node: true,
     browser: true,
   },
-}
+  plugins: ["only-warn"],
+  settings: {
+    "import/resolver": {
+      typescript: {
+        project,
+      },
+    },
+  },
+  ignorePatterns: [
+    // Ignore dotfiles
+    ".*.js",
+    "node_modules/",
+  ],
+  overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],
+};

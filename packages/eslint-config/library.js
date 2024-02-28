@@ -1,6 +1,6 @@
-// const { resolve } = require("path")
+const { resolve } = require("path")
 
-// const project = resolve(process.cwd(), "tsconfig.json")
+const project = resolve(process.cwd(), "tsconfig.json")
 
 module.exports = {
   extends: [
@@ -12,8 +12,16 @@ module.exports = {
     "plugin:jsx-a11y/recommended",
     "next",
     "prettier",
+    "eslint-config-turbo",
   ],
-  plugins: ["react", "prettier", "autofix", "react-hooks", "@typescript-eslint"],
+  parserOptions: {
+    project,
+    sourceType: "module",
+    ecmaFeatures: {
+      jsx: true,
+    },
+  },
+  plugins: ["@typescript-eslint", "react", "autofix", "react-hooks", "prettier"],
   globals: {
     React: "writable",
     JSX: "writable",
@@ -29,7 +37,7 @@ module.exports = {
     "import/resolver": {
       typescript: {
         alwaysTryTypes: true,
-        project: './tsconfig.json',
+        project,
       },
     },
   },
@@ -40,6 +48,41 @@ module.exports = {
     },
   ],
   rules: {
-    "next/no-html-link-for-pages": "off"
-  }
+    "next/no-html-link-for-pages": "off",
+    "prettier/prettier": ["error"],
+    "react/react-in-jsx-scope": "off",
+    "spaced-comment": "warn",
+    quotes: ["error", "double"],
+    "no-console": "warn",
+    "no-redeclare": "warn",
+    "react/display-name": "off",
+    "react/prop-types": "warn",
+    "react/jsx-key": "warn",
+    "arrow-body-style": "off",
+    "react/self-closing-comp": [
+      "error",
+      {
+        component: true,
+        html: true,
+      },
+    ],
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        argsIgnorePattern: "^_|^e$",
+        ignoreRestSiblings: true,
+        destructuredArrayIgnorePattern: "^_|^e$",
+      },
+    ],
+    "brace-style": [
+      "error",
+      "stroustrup",
+      {
+        allowSingleLine: false,
+      },
+    ],
+    indent: ["error", 2, { ignoreComments: true }],
+  },
 }
+
+    
