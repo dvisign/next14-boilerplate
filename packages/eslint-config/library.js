@@ -1,6 +1,6 @@
-const { resolve } = require("path")
+// const { resolve } = require("path")
 
-const project = resolve(process.cwd(), "tsconfig.json")
+// const project = resolve(process.cwd(), "tsconfig.json")
 
 module.exports = {
   extends: [
@@ -11,7 +11,6 @@ module.exports = {
     "plugin:import/typescript",
     "plugin:jsx-a11y/recommended",
     "next",
-    "next/core-web-vitals",
     "prettier",
   ],
   plugins: ["react", "prettier", "autofix", "react-hooks", "@typescript-eslint"],
@@ -30,7 +29,7 @@ module.exports = {
     "import/resolver": {
       typescript: {
         alwaysTryTypes: true,
-        project,
+        project: './tsconfig.json',
       },
     },
   },
@@ -40,4 +39,7 @@ module.exports = {
       files: ["*.js?(x)", "*.ts?(x)"],
     },
   ],
+  rules: {
+    "next/no-html-link-for-pages": "off"
+  }
 }

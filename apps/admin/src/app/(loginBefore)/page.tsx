@@ -27,7 +27,7 @@ function LoginPage() {
   )
   useEffect(() => {
     if (user.id && user.name) router.push("/info")
-  }, [user])
+  }, [user, router])
   return (
     <LoginContext.Provider value={{ id, password, onChangeId, onChangePassword, onSubmit }}>
       <LoginFormTemp />
