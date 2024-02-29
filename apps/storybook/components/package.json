@@ -2,9 +2,12 @@
   "name": "@repo/components",
   "version": "0.0.0",
   "private": true,
-  "main": "index.ts",
   "scripts": {
     "lint": "eslint . --max-warnings 0"
+  },
+  "exports": {
+    "./*": "./src/*",
+    "./assets/*": "./assets/*"
   },
   "devDependencies": {
     "@repo/__typescript": "*",

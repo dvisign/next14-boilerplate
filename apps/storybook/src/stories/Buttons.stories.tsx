@@ -1,16 +1,16 @@
 import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 import type { Meta, StoryObj } from "@storybook/react"
-import Button, { ButtonTypes } from "@repo/components/forms/Buttons"
+import { ButtonTypes, Buttons } from "@repo/components"
 
 const meta = {
   title: "Component/Atoms/Button",
-  component: Button,
+  component: Buttons,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof Button>
+} satisfies Meta<typeof Buttons>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -24,6 +24,6 @@ export const Default: Story = {
       setCount(count + 1)
       action("clicked")(count + 1)
     }
-    return <Button onClick={onClick}>{args.children}</Button>
+    return <Buttons onClick={onClick}>{args.children}</Buttons>
   },
 }
