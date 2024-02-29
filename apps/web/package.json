@@ -15,8 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "jquery":"^3.7.1",
-    "@repo/ui": "*",
+    "@repo/components": "*",
     "@babel/core": "^7.23.9",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
@@ -42,9 +41,9 @@
     "sass": "^1.69.7"
   },
   "devDependencies": {
-    "@repo/eslint-config": "*",
-    "@repo/typescript-config": "*",
-    "@repo/msw": "*",
+    "@repo/__eslint": "*",
+    "@repo/__typescript": "*",
+    "@repo/msw-config": "*",
     "@babel/preset-env": "^7.23.9",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",

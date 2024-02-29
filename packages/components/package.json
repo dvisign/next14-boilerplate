@@ -1,5 +1,5 @@
 {
-  "name": "@repo/ui",
+  "name": "@repo/components",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,7 @@
     "./Buttons": "./src/forms/Buttons/index.tsx"
   },
   "devDependencies": {
-    "@repo/typescript-config": "*",
+    "@repo/__typescript": "*",
     "@turbo/gen": "^1.11.3",
     "@types/node": "^20.10.6",
     "@types/eslint": "^8.56.1",

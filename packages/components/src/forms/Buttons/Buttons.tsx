@@ -25,4 +25,3 @@ function Button({ children, disabled, ...props }: ButtonTypes) {
   )
 }
 export default memo(Button)
-export { type ButtonTypes }

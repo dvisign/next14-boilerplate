@@ -1,10 +1,10 @@
 {
-  "name": "@repo/msw",
+  "name": "@repo/__msw",
   "version": "1.0.0",
   "description": "",
   "main": "index.tsx",
   "devDependencies": {
-    "@repo/typescript-config": "*",
+    "@repo/__typescript": "*",
     "@types/node": "^20.10.6",
     "@types/eslint": "^8.56.1",
     "@types/react": "^18.2.46",

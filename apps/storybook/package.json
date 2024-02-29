@@ -12,12 +12,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@repo/ui": "*",
+    "@repo/components": "*",
     "@storybook/testing-library": "^0.2.2"
   },
   "devDependencies": {
-    "@repo/eslint-config": "*",
-    "@repo/typescript-config": "*",
+    "@repo/__eslint": "*",
+    "@repo/__typescript": "*",
     "@chromatic-com/storybook": "^1.1.9",
     "@storybook/addon-actions": "^7.6.17",
     "@storybook/addon-essentials": "^7.6.17",
