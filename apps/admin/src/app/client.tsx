@@ -2,7 +2,7 @@
 import { useEffect, ReactNode } from "react"
 import { useRouter } from "next/navigation"
 import { useAppSelector } from "@/redux/store"
-import MswGenerator from "@repo/__msw"
+import MswGenerator from "@repo/msw-config"
 import { handlers } from "@/mocks/handlers"
 
 function Client({ children }: { children: ReactNode }) {
