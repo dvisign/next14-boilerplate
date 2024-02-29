@@ -41,8 +41,8 @@
     "sass": "^1.69.7"
   },
   "devDependencies": {
-    "@repo/__eslint": "*",
-    "@repo/__typescript": "*",
+    "@repo/eslint-config": "*",
+    "@repo/typescript-config": "*",
     "@repo/__msw": "*",
     "@babel/preset-env": "^7.23.9",
     "@babel/preset-react": "^7.23.3",
