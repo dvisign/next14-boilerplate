@@ -6,7 +6,8 @@
     "lint": "eslint . --max-warnings 0"
   },
   "exports": {
-    "./Buttons": "./src/forms/Buttons/index.tsx"
+    "./*": "./src/*",
+    "./assets/*": "./assets/*"
   },
   "devDependencies": {
     "@repo/__typescript": "*",
