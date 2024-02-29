@@ -10,7 +10,6 @@ module.exports = {
     "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:jsx-a11y/recommended",
-    "next",
     "prettier",
     "eslint-config-turbo",
   ],
@@ -41,14 +40,18 @@ module.exports = {
       },
     },
   },
-  ignorePatterns: ["**/.*.js", "**/.*.ts", "**/.*.tsx", "node_modules/", "dist/"],
+  ignorePatterns: [
+    // Ignore dotfiles
+    ".*.js",
+    "node_modules/",
+    "dist/",
+  ],
   overrides: [
     {
       files: ["*.js?(x)", "*.ts?(x)"],
     },
   ],
   rules: {
-    "next/no-html-link-for-pages": "off",
     "prettier/prettier": ["error"],
     "react/react-in-jsx-scope": "off",
     "spaced-comment": "warn",

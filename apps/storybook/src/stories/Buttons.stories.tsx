@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import { action } from "@storybook/addon-actions"
 import type { Meta, StoryObj } from "@storybook/react"
-import { ButtonTypes, Buttons } from "@repo/components"
+import { ButtonTypes, Buttons } from "@repo/_components"
 
 const meta = {
   title: "Component/Atoms/Button",

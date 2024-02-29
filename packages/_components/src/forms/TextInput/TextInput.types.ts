@@ -47,5 +47,5 @@ export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
   /**
    * onchange
    */
-  onChange?: (e: ChangeEvent<HTMLInputElement>) => void | undefined
+  onChange?: (_: ChangeEvent<HTMLInputElement>) => void | undefined
 }

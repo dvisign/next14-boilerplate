@@ -1,14 +1,10 @@
 {
-  "name": "@repo/components",
-  "version": "0.0.0",
-  "private": true,
-  "main": "index.ts",
-  "scripts": {
-    "lint": "eslint . --max-warnings 0"
-  },
+  "name": "@repo/msw-config",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.tsx",
   "devDependencies": {
-    "@repo/__typescript": "*",
-    "@turbo/gen": "^1.11.3",
+    "@repo/typescript-config": "*",
     "@types/node": "^20.10.6",
     "@types/eslint": "^8.56.1",
     "@types/react": "^18.2.46",
@@ -16,5 +12,8 @@
     "eslint": "^8.56.0",
     "react": "^18.2.0",
     "typescript": "^5.3.3"
-  }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
