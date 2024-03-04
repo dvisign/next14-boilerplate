@@ -1,9 +1,19 @@
+const { resolve } = require("path")
+
+/** @type {import("eslint").Linter.Config} */
 module.exports = {
   root: true,
-  ignorePatterns: ["apps/**", "packages/**"],
   extends: ["@repo/eslint-config/library.js"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: true,
+  },
+  settings: {
+    "import/resolver": {
+      typescript: {
+        alwaysTryTypes: true,
+        project: resolve(__dirname, "tsconfig.json"),
+      },
+    },
   },
 }

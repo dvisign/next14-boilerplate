@@ -1,14 +1,10 @@
-/** @type {import("eslint").Linter.Config} */
+const { resolve } = require("path")
+
 module.exports = {
   root: true,
   extends: ["@repo/eslint-config/react-internal.js", "@repo/eslint-config/library.js"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    extends: "@repo/typescript-config/react-library.json",
-    compilerOptions: {
-      outDir: "dist"
-    },
-    include: ["src", "turbo", "./index.ts"],
-    exclude: ["node_modules", "dist"]
+    project: resolve(__dirname, "tsconfig.json"),
   },
 };

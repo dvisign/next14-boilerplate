@@ -26,8 +26,7 @@ module.exports = {
     JSX: "writable",
   },
   env: {
-    browser: true,
-    es2021: true,
+    node: true,
   },
   settings: {
     "import/parsers": {
@@ -42,7 +41,7 @@ module.exports = {
   },
   ignorePatterns: [
     // Ignore dotfiles
-    ".*.js",
+    // ".*.js",
     "node_modules/",
     "dist/",
   ],
@@ -87,5 +86,3 @@ module.exports = {
     indent: ["error", 2, { ignoreComments: true }],
   },
 }
-
-    
