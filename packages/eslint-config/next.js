@@ -71,8 +71,6 @@ module.exports = {
       },
     ],
     "brace-style": "off",
-    indent: ["error", 2, { ignoreComments: true }],
-
     "import/no-unresolved": [
       "error",
       { ignore: ["\\@.*$"] }, // all our aliases start with a @ sign

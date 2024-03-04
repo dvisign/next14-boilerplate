@@ -1,16 +1,16 @@
-import axios from "axios"
+import axios, { AxiosInstance, AxiosRequestConfig, InternalAxiosRequestConfig } from "axios"
 
 const setTimer = 500
-let timer = null
+let timer: ReturnType<typeof setTimeout> | undefined = undefined
 let throttled = false
-const setURL = (config, api = "") => {
-  if (!api) return null
+const setURL = (config: AxiosRequestConfig, api: string = ""): InternalAxiosRequestConfig<any> => {
+  if (!api) return config as InternalAxiosRequestConfig<any>
   if (config?.url) {
     config.url = `${process.env.NEXT_PUBLIC_API_URL}${config.url}`
   }
-  return config
+  return config as InternalAxiosRequestConfig<any>
 }
-const setContentType = options => {
+const setContentType = (options: AxiosRequestConfig) => {
   if (!options.headers) options.headers = {}
   if (!options.headers["Content-Type"]) {
     const contentType = (options.contentType || "").toUpperCase()
@@ -38,12 +38,11 @@ const setBaseOptions = () => {
     timeout: 5000,
     headers: {},
   }
-  options.headers["Access-Control-Allow-Origin"] = "*"
-  options.headers["Access-Control-Allow-Methods"] = "GET,PUT,POST,DELETE,PATCH,OPTIONS"
   return options
 }
+
 // axios default interceptor
-const defaultApiService = axios.create({ ...setBaseOptions() })
+const defaultApiService: AxiosInstance = axios.create({ ...setBaseOptions() })
 defaultApiService.interceptors.request.use(
   async config => {
     return setURL(config, "API")
@@ -67,7 +66,7 @@ defaultApiService.interceptors.response.use(
   },
 )
 // axios throttle interceptor
-const throttleApiService = axios.create({ ...setBaseOptions() })
+const throttleApiService: AxiosInstance = axios.create({ ...setBaseOptions() })
 throttleApiService.interceptors.request.use(
   async config => {
     if (throttled) {
@@ -93,7 +92,7 @@ throttleApiService.interceptors.response.use(
   },
 )
 // axios debounce interceptor
-const debounceApiService = axios.create({ ...setBaseOptions() })
+const debounceApiService: AxiosInstance = axios.create({ ...setBaseOptions() })
 debounceApiService.interceptors.request.use(
   async config => {
     clearTimeout(timer)
@@ -117,7 +116,7 @@ debounceApiService.interceptors.response.use(
   },
 )
 // axios login interceptor
-const loginApiService = axios.create({ ...setBaseOptions() })
+const loginApiService: AxiosInstance = axios.create({ ...setBaseOptions() })
 loginApiService.interceptors.request.use(
   async config => {
     return setURL(config, "API")
@@ -142,10 +141,10 @@ loginApiService.interceptors.response.use(
 )
 
 // axios default
-export const defaultFetchApis = options => defaultApiService(setContentType(options))
+export const defaultFetchApis = (options: AxiosRequestConfig) => defaultApiService(setContentType(options))
 // axios throttle
-export const throttleFetchApis = options => throttleApiService(setContentType(options))
+export const throttleFetchApis = (options: AxiosRequestConfig) => throttleApiService(setContentType(options))
 // axios debounce
-export const debounceFetchApis = options => debounceApiService(setContentType(options))
+export const debounceFetchApis = (options: AxiosRequestConfig) => debounceApiService(setContentType(options))
 // axios login
-export const loginFetchApis = options => loginApiService(setContentType(options))
+export const loginFetchApis = (options: AxiosRequestConfig) => loginApiService(setContentType(options))
