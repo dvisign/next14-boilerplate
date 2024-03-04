@@ -10,8 +10,8 @@ module.exports = {
     "plugin:import/recommended",
     "plugin:import/typescript",
     "plugin:jsx-a11y/recommended",
-    "prettier",
     "eslint-config-turbo",
+    "prettier",
   ],
   parserOptions: {
     project,
@@ -43,7 +43,7 @@ module.exports = {
     // Ignore dotfiles
     // ".*.js",
     "node_modules/",
-    "dist/",
+    "*.json"
   ],
   overrides: [
     {
@@ -58,7 +58,6 @@ module.exports = {
     "no-console": "warn",
     "no-redeclare": "warn",
     "react/display-name": "off",
-    "react/prop-types": "warn",
     "react/jsx-key": "warn",
     "arrow-body-style": "off",
     "react/self-closing-comp": [

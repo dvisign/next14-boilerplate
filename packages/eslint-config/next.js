@@ -1,6 +1,6 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: [require.resolve("@vercel/style-guide/eslint/next"), "next", "./library"],
+  extends: [require.resolve("@vercel/style-guide/eslint/next"), "./library"],
   globals: {
     React: "writable",
     JSX: "writable",
@@ -13,6 +13,7 @@ module.exports = {
   ignorePatterns: [
     // Ignore dotfiles
     // ".*.js",
+    "*.json",
     "node_modules/",
   ],
   overrides: [{ files: ["*.js?(x)", "*.ts?(x)"] }],

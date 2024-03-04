@@ -3,7 +3,11 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
+    "build:web":"turbo run build --filter=./apps/web",
+    "build:admin":"turbo run build --filter=./apps/admin",
     "dev": "turbo dev",
+    "dev:web": "turbo dev --filter=!./apps/admin",
+    "dev:admin": "turbo dev --filter=!./apps/web",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "graph": "turbo run build lint --graph=graph.png"
