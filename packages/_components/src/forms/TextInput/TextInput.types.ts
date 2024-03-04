@@ -1,5 +1,5 @@
 import { InputHTMLAttributes, ChangeEvent } from "react"
-export interface TextInputProps extends InputHTMLAttributes<HTMLInputElement> {
+export interface TextInputTypes extends InputHTMLAttributes<HTMLInputElement> {
   /**
    * value
    */

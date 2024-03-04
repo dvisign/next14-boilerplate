@@ -3,6 +3,6 @@
   "compilerOptions": {
     "outDir": "dist"
   },
-  "include": ["src", "turbo","index.ts"],
+  "include": ["src", "turbo", "index.ts"],
   "exclude": ["node_modules", "dist"]
 }

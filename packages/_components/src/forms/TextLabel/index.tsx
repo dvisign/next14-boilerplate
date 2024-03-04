@@ -12,3 +12,5 @@ function TextLabel({ label, className = "", htmlFor }: TextLabelTypes) {
   )
 }
 export default memo(TextLabel)
+
+export { type TextLabelTypes }

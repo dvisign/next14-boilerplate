@@ -1,4 +1,4 @@
-const { resolve } = require("path");
+const { resolve } = require("path")
 
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
@@ -12,8 +12,8 @@ module.exports = {
     "import/resolver": {
       typescript: {
         alwaysTryTypes: true,
-        project: resolve(__dirname, "tsconfig.json") 
-      }
-    }
-  }
-};
+        project: resolve(__dirname, "tsconfig.json"),
+      },
+    },
+  },
+}
