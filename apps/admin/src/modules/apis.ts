@@ -4,7 +4,7 @@ const setTimer = 500
 let timer = null
 let throttled = false
 const setURL = (config, api = "") => {
-  console.log(api)
+  if (!api) return null
   if (config?.url) {
     config.url = `${process.env.NEXT_PUBLIC_API_URL}${config.url}`
   }
@@ -54,18 +54,16 @@ defaultApiService.interceptors.request.use(
     // }
   },
   async error => {
-    console.log(error)
-    return Promise.reject(null)
+    return Promise.reject(error)
   },
 )
 defaultApiService.interceptors.response.use(
   async response => {
-    console.log(response)
     const rs = await response
     return rs
   },
   async _error => {
-    console.log(_error)
+    return Promise.reject(_error)
   },
 )
 // axios throttle interceptor
@@ -82,18 +80,16 @@ throttleApiService.interceptors.request.use(
     return setURL(config)
   },
   async error => {
-    console.log(error)
-    return Promise.reject(null)
+    return Promise.reject(error)
   },
 )
 throttleApiService.interceptors.response.use(
   async response => {
-    console.log(response)
     const rs = await response
     return rs
   },
   async _error => {
-    console.log(_error)
+    return Promise.reject(_error)
   },
 )
 // axios debounce interceptor
@@ -108,18 +104,16 @@ debounceApiService.interceptors.request.use(
     })
   },
   async error => {
-    console.log(error)
-    return Promise.reject(null)
+    return Promise.reject(error)
   },
 )
 debounceApiService.interceptors.response.use(
   async response => {
-    console.log(response)
     const rs = await response
     return rs
   },
   async _error => {
-    console.log(_error)
+    return Promise.reject(_error)
   },
 )
 // axios login interceptor
@@ -134,18 +128,16 @@ loginApiService.interceptors.request.use(
     // }
   },
   async error => {
-    console.log(error)
-    return Promise.reject(null)
+    return Promise.reject(error)
   },
 )
 loginApiService.interceptors.response.use(
   async response => {
-    console.log(response)
     const rs = await response
     return rs
   },
   async _error => {
-    console.log(_error)
+    return Promise.reject(_error)
   },
 )
 

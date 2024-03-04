@@ -1,4 +1,4 @@
-const fs = require("node:fs")
+// const fs = require("node:fs")
 const { resolve } = require("node:path")
 const project = resolve(process.cwd(), "tsconfig.json")
 
@@ -44,6 +44,7 @@ module.exports = {
     },
   },
   rules: {
+    "@typescript-eslint/no-var-requires": "off",
     "@next/next/no-html-link-for-pages": "off",
     "prettier/prettier": ["error"],
     "react/react-in-jsx-scope": "off",
@@ -69,13 +70,7 @@ module.exports = {
         destructuredArrayIgnorePattern: "^_|^e$",
       },
     ],
-    "brace-style": [
-      "error",
-      "stroustrup",
-      {
-        allowSingleLine: false,
-      },
-    ],
+    "brace-style": "off",
     indent: ["error", 2, { ignoreComments: true }],
 
     "import/no-unresolved": [
@@ -130,20 +125,13 @@ module.exports = {
     // "import/no-duplicates": ["error", { considerQueryString: true }],
   },
 }
-function getDirectoriesToSort() {
-  const ignoredSortingDirectories = [
-    ".git",
-    ".next",
-    ".vscode",
-    "node_modules",
-  ];
-  return getDirectories(process.cwd()).filter(
-    (f) => !ignoredSortingDirectories.includes(f),
-  );
-}
+// function getDirectoriesToSort() {
+//   const ignoredSortingDirectories = [".git", ".next", ".vscode", "node_modules"]
+//   return getDirectories(process.cwd()).filter(f => !ignoredSortingDirectories.includes(f))
+// }
 
-function getDirectories(path) {
-  return fs.readdirSync(path).filter((file) => {
-    return fs.statSync(`${path}/${file}`).isDirectory();
-  });
-}
+// function getDirectories(path) {
+//   return fs.readdirSync(path).filter(file => {
+//     return fs.statSync(`${path}/${file}`).isDirectory()
+//   })
+// }

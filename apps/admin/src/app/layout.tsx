@@ -1,6 +1,7 @@
 import { ReduxProvider, ReduxPersistGate } from "@/redux/reduxProvider"
 import Client from "@/app/client"
 import "@/assets/scss/common.scss"
+import { ReactNode } from "react"
 
 export const metadata = {
   title: "Next.js",
@@ -14,7 +15,7 @@ function Footer() {
   return <footer>푸터</footer>
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ko">
       <body>
