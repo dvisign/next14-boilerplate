@@ -19,7 +19,7 @@ export const requestLogin = createAsyncThunk<UserResponseTypes, UserLoginTypes, 
   async (payload: UserLoginTypes, { rejectWithValue }) => {
     try {
       const response = await debounceFetchApis({
-        url: "/api/user",
+        url: `${process.env.NEXT_PUBLIC_API_URL}/api/user`,
         method: "post",
         data: {
           ...payload,
@@ -42,7 +42,7 @@ export const requestLogin = createAsyncThunk<UserResponseTypes, UserLoginTypes, 
 export const requestLogout = createAsyncThunk("user/logout", async (_, { rejectWithValue }) => {
   try {
     const response = await debounceFetchApis({
-      url: "/api/user/logout",
+      url: `${process.env.NEXT_PUBLIC_API_URL}/api/user/logout`,
       method: "get",
     })
     return response.data // 성공 시 응답 데이터 반환
