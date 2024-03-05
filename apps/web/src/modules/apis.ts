@@ -1,16 +1,25 @@
-import axios from "axios"
+import axios, { AxiosInstance, AxiosRequestConfig, InternalAxiosRequestConfig } from "axios"
+
+interface CustomAxiosRequestConfig extends AxiosRequestConfig {
+  contentType?: string
+  originalUrl?: string
+}
 
 const setTimer = 500
-let timer = null
+let timer: ReturnType<typeof setTimeout> | undefined = undefined
 let throttled = false
-const setURL = (config, api = "") => {
-  console.log(api)
-  if (config?.url) {
+
+const setURL = (config: AxiosRequestConfig, api: string = ""): InternalAxiosRequestConfig => {
+  if (!api) return config as InternalAxiosRequestConfig
+  // `config` 객체를 수정하는 로직
+  if (config.url) {
     config.url = `${process.env.NEXT_PUBLIC_API_URL}${config.url}`
   }
-  return config
+
+  // `InternalAxiosRequestConfig`로 캐스팅하여 반환
+  return config as InternalAxiosRequestConfig
 }
-const setContentType = options => {
+const setContentType = (options: CustomAxiosRequestConfig) => {
   if (!options.headers) options.headers = {}
   if (!options.headers["Content-Type"]) {
     const contentType = (options.contentType || "").toUpperCase()
@@ -38,12 +47,11 @@ const setBaseOptions = () => {
     timeout: 5000,
     headers: {},
   }
-  options.headers["Access-Control-Allow-Origin"] = "*"
-  options.headers["Access-Control-Allow-Methods"] = "GET,PUT,POST,DELETE,PATCH,OPTIONS"
   return options
 }
+
 // axios default interceptor
-const defaultApiService = axios.create({ ...setBaseOptions() })
+const defaultApiService: AxiosInstance = axios.create({ ...setBaseOptions() })
 defaultApiService.interceptors.request.use(
   async config => {
     return setURL(config, "API")
@@ -54,22 +62,20 @@ defaultApiService.interceptors.request.use(
     // }
   },
   async error => {
-    console.log(error)
-    return Promise.reject(null)
+    return Promise.reject(error)
   },
 )
 defaultApiService.interceptors.response.use(
   async response => {
-    console.log(response)
     const rs = await response
     return rs
   },
   async _error => {
-    console.log(_error)
+    return Promise.reject(_error)
   },
 )
 // axios throttle interceptor
-const throttleApiService = axios.create({ ...setBaseOptions() })
+const throttleApiService: AxiosInstance = axios.create({ ...setBaseOptions() })
 throttleApiService.interceptors.request.use(
   async config => {
     if (throttled) {
@@ -82,22 +88,20 @@ throttleApiService.interceptors.request.use(
     return setURL(config)
   },
   async error => {
-    console.log(error)
-    return Promise.reject(null)
+    return Promise.reject(error)
   },
 )
 throttleApiService.interceptors.response.use(
   async response => {
-    console.log(response)
     const rs = await response
     return rs
   },
   async _error => {
-    console.log(_error)
+    return Promise.reject(_error)
   },
 )
 // axios debounce interceptor
-const debounceApiService = axios.create({ ...setBaseOptions() })
+const debounceApiService: AxiosInstance = axios.create({ ...setBaseOptions() })
 debounceApiService.interceptors.request.use(
   async config => {
     clearTimeout(timer)
@@ -108,22 +112,20 @@ debounceApiService.interceptors.request.use(
     })
   },
   async error => {
-    console.log(error)
-    return Promise.reject(null)
+    return Promise.reject(error)
   },
 )
 debounceApiService.interceptors.response.use(
   async response => {
-    console.log(response)
     const rs = await response
     return rs
   },
   async _error => {
-    console.log(_error)
+    return Promise.reject(_error)
   },
 )
 // axios login interceptor
-const loginApiService = axios.create({ ...setBaseOptions() })
+const loginApiService: AxiosInstance = axios.create({ ...setBaseOptions() })
 loginApiService.interceptors.request.use(
   async config => {
     return setURL(config, "API")
@@ -134,26 +136,24 @@ loginApiService.interceptors.request.use(
     // }
   },
   async error => {
-    console.log(error)
-    return Promise.reject(null)
+    return Promise.reject(error)
   },
 )
 loginApiService.interceptors.response.use(
   async response => {
-    console.log(response)
     const rs = await response
     return rs
   },
   async _error => {
-    console.log(_error)
+    return Promise.reject(_error)
   },
 )
 
 // axios default
-export const defaultFetchApis = options => defaultApiService(setContentType(options))
+export const defaultFetchApis = (options: AxiosRequestConfig) => defaultApiService(setContentType(options))
 // axios throttle
-export const throttleFetchApis = options => throttleApiService(setContentType(options))
+export const throttleFetchApis = (options: AxiosRequestConfig) => throttleApiService(setContentType(options))
 // axios debounce
-export const debounceFetchApis = options => debounceApiService(setContentType(options))
+export const debounceFetchApis = (options: AxiosRequestConfig) => debounceApiService(setContentType(options))
 // axios login
-export const loginFetchApis = options => loginApiService(setContentType(options))
+export const loginFetchApis = (options: AxiosRequestConfig) => loginApiService(setContentType(options))

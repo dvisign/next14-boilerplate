@@ -72,16 +72,16 @@ const userReducer = createSlice({
         const { reason, status, user } = payload
         state.loading = false
         if (status === 200) {
-          state.name = user.name
-          state.id = user.id
+          state.name = user?.name || ""
+          state.id = user?.id || ""
         } else {
           alert(reason || "알 수 없는 오류가 발생하였습니다. 잠시 후 다시 이용해 주세요.")
         }
       })
-      .addCase(requestLogin.rejected, (state: defaultStateTypes, action: PayloadAction<UserResponseTypes | string>) => {
+      .addCase(requestLogin.rejected, (state: defaultStateTypes, _: PayloadAction<UserResponseTypes | undefined>) => {
         state.loading = false
         // 에러 정보에 따른 상태 업데이트 또는 알림 처리
-        console.error(action.payload)
+        // console.error(action.payload)
       })
       .addCase(requestLogout.pending, state => {
         state.loading = true
@@ -91,10 +91,10 @@ const userReducer = createSlice({
         state.id = ""
         state.name = ""
       })
-      .addCase(requestLogout.rejected, (state, action) => {
+      .addCase(requestLogout.rejected, (state, _) => {
         state.loading = false
         // 에러 정보에 따른 상태 업데이트 또는 알림 처리
-        console.error(action.payload)
+        // console.error(action.payload)
       })
   },
 })

@@ -9,7 +9,8 @@
     "dev:web": "turbo dev --filter=!./apps/admin",
     "dev:admin": "turbo dev --filter=!./apps/web",
     "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "format": "prettier --check --ignore-path .gitignore .",
+    "format:fix": "prettier --write --ignore-path .gitignore .",
     "graph": "turbo run build lint --graph=graph.png"
   },
   "dependencies": {

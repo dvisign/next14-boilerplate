@@ -1,16 +1,25 @@
 import axios, { AxiosInstance, AxiosRequestConfig, InternalAxiosRequestConfig } from "axios"
 
+interface CustomAxiosRequestConfig extends AxiosRequestConfig {
+  contentType?: string
+  originalUrl?: string
+}
+
 const setTimer = 500
 let timer: ReturnType<typeof setTimeout> | undefined = undefined
 let throttled = false
-const setURL = (config: AxiosRequestConfig, api: string = ""): InternalAxiosRequestConfig<any> => {
-  if (!api) return config as InternalAxiosRequestConfig<any>
-  if (config?.url) {
+
+const setURL = (config: AxiosRequestConfig, api: string = ""): InternalAxiosRequestConfig => {
+  if (!api) return config as InternalAxiosRequestConfig
+  // `config` 객체를 수정하는 로직
+  if (config.url) {
     config.url = `${process.env.NEXT_PUBLIC_API_URL}${config.url}`
   }
-  return config as InternalAxiosRequestConfig<any>
+
+  // `InternalAxiosRequestConfig`로 캐스팅하여 반환
+  return config as InternalAxiosRequestConfig
 }
-const setContentType = (options: AxiosRequestConfig) => {
+const setContentType = (options: CustomAxiosRequestConfig) => {
   if (!options.headers) options.headers = {}
   if (!options.headers["Content-Type"]) {
     const contentType = (options.contentType || "").toUpperCase()

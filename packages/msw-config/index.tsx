@@ -1,10 +1,10 @@
 "use client"
-
+import { RequestHandler } from "msw"
 import { useState, useEffect } from "react"
 
 const isMockingMode = process.env.NEXT_PUBLIC_API_MOCKING === "enabled"
 let serverInit = false
-function MswGenerator({ handlers }) {
+function MswGenerator({ handlers }: { handlers: RequestHandler[] }) {
   const [useMsw, setUseMsw] = useState(() => !isMockingMode)
   useEffect(() => {
     const mswInit = async () => {
