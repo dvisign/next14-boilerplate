@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useCallback, FormEvent } from "react"
 import { useRouter } from "next/navigation"
-import { useInput } from "@/hooks"
+import { useInput } from "@repo/_hooks"
 import { useAppSelector, useAppDispatch } from "@/redux/store"
 import { requestLogin } from "@/redux/slice/userSlice"
 import LoginFormTemp from "@/components/templates/forms/LoginFormTmp"

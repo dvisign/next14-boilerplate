@@ -15,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@repo/_hooks": "*",
     "@repo/_components": "*",
     "@babel/core": "^7.23.9",
     "@emotion/react": "^11.11.3",
