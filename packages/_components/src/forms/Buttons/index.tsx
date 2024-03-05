@@ -13,7 +13,7 @@ function Button({ children, disabled, ...props }: ButtonTypes) {
     active,
     disabled,
     focusVisible,
-    [props.className]: !!props.className,
+    ...(props.className ? { [props.className]: true } : {}),
   }
   const rootProps = {
     ...getRootProps(),

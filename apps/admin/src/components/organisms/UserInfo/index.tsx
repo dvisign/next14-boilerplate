@@ -2,7 +2,7 @@ import { FaUser } from "react-icons/fa"
 import { RiLockPasswordFill } from "react-icons/ri"
 import { useAppSelector, useAppDispatch } from "@/redux/store"
 import { requestLogout } from "@/redux/slice/userSlice"
-import Button from "@/components/atoms/forms/Buttons"
+import { Buttons } from "@repo/_components"
 import TextInputMole from "@/components/molecules/forms/TextInputMol"
 import userInfoOrgStyles from "./UserInfoOrg.module.scss"
 
@@ -40,7 +40,7 @@ function UserInfoOrg() {
         />
       </div>
       <div className={userInfoOrgStyles.lines}>
-        <Button onClick={() => logout()}>로그아웃</Button>
+        <Buttons onClick={() => logout()}>로그아웃</Buttons>
       </div>
     </>
   )

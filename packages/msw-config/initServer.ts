@@ -1,4 +1,5 @@
-export async function initMock(handlers) {
+import { RequestHandler } from "msw"
+export async function initMock(handlers: RequestHandler[]) {
   if (typeof window === "undefined") {
     const { server } = await import("./server")
     server.listen()

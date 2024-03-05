@@ -1,4 +1,4 @@
-import { combineReducers, configureStore } from "@reduxjs/toolkit"
+import { combineReducers, configureStore, Middleware } from "@reduxjs/toolkit"
 import { FLUSH, PAUSE, PERSIST, persistReducer, persistStore, PURGE, REGISTER, REHYDRATE } from "redux-persist"
 import { useDispatch, useSelector } from "react-redux"
 import type { TypedUseSelectorHook } from "react-redux"
@@ -7,13 +7,13 @@ import createWebStorage from "redux-persist/lib/storage/createWebStorage"
 
 const createNoopStorage = () => {
   return {
-    getItem() {
+    getItem(): Promise<null> {
       return Promise.resolve(null)
     },
-    setItem(_, value) {
+    setItem(_: string, value: string): Promise<string> {
       return Promise.resolve(value)
     },
-    removeItem() {
+    removeItem(): Promise<void> {
       return Promise.resolve()
     },
   }
@@ -30,7 +30,7 @@ const rootReducer = combineReducers({ user: userReducer })
 
 const persistedReducer = persistReducer<ReturnType<typeof rootReducer>>(persistConfig, rootReducer)
 
-const middlewares = []
+const middlewares: Middleware[] = []
 
 export const store = configureStore({
   reducer: persistedReducer,

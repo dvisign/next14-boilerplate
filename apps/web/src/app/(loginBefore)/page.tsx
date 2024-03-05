@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useCallback } from "react"
+import { useEffect, useCallback, FormEvent } from "react"
 import { useRouter } from "next/navigation"
 import { useInput } from "@/hooks"
 import { useAppSelector, useAppDispatch } from "@/redux/store"
@@ -14,7 +14,7 @@ function LoginPage() {
   const dispatch = useAppDispatch()
   const user = useAppSelector(state => state.user)
   const onSubmit = useCallback(
-    async e => {
+    async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault()
       dispatch(
         requestLogin({

@@ -1,9 +1,9 @@
 import { memo, useState } from "react"
 import { clsx } from "clsx"
 import Label from "@/components/atoms/forms/TextLabel"
-import TextInput from "@/atoms/forms/TextInput"
-import styles from "./TextInputMol.module.scss"
+import { TextInput } from "@repo/_components"
 import { TextInputMolTypes } from "./TextInputMol.types"
+import styles from "./TextInputMol.module.scss"
 
 function TextInputMol({
   disabled = false,
@@ -11,7 +11,7 @@ function TextInputMol({
   type = "text",
   label = "",
   iconComponent = null,
-  onChange = () => null,
+  onChange = () => undefined,
   value = "",
   className = "",
   ...props

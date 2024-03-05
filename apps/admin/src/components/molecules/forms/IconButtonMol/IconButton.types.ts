@@ -1,5 +1,5 @@
 import { ReactElement } from "react"
-import { ButtonTypes } from "@/components/atoms/forms/Buttons/Buttons.types"
+import { ButtonTypes } from "@repo/_components"
 
 export interface ButtonMolTypes extends ButtonTypes {
   className?: string

@@ -1,8 +1,8 @@
 import styled from "@emotion/styled"
-import { TextInputProps } from "./TextInput.types"
+import { TextInputTypes } from "./TextInput.types"
 
 // 기본 입력 필드 스타일
-export const InputBaseStyle = styled("input")<TextInputProps>`
+export const InputBaseStyle = styled("input")<TextInputTypes>`
   display: ${({ display }) => display || "inline"};
   position: relative;
   border: ${({ borderSize }) => `${borderSize}px` || "1px"} ${({ borderStyle }) => borderStyle || "solid"}

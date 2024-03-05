@@ -11,7 +11,7 @@ function TextInputMol({
   type = "text",
   label = "",
   iconComponent = null,
-  onChange = () => null,
+  onChange = () => undefined,
   value = "",
   className = "",
   ...props
