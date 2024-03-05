@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit"
 import axios from "axios"
 import { UserLoginTypes, UserResponseTypes } from "@/types/model/user/userModel"
 import { UserDefaultTypes } from "@/types/slice/user/userSliceTypes"
-import { debounceFetchApis } from "@/modules"
+import { debounceFetchApis } from "@repo/_apis"
 
 interface defaultStateTypes extends UserDefaultTypes {
   loading: boolean
