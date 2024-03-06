@@ -1,11 +1,13 @@
 "use client"
-import { useEffect } from "react"
+import { ReactNode, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { useAppSelector } from "@/redux/store"
+import test from "ibj"
 
-function Client({ children }) {
+function Client({ children }: { children: ReactNode }) {
   const user = useAppSelector(state => state.user)
   const router = useRouter()
+  console.log(test)
   useEffect(() => {
     if (!user.id && !user.name) router.push("/")
   }, [user])
