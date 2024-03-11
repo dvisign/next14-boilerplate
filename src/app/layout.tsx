@@ -1,3 +1,4 @@
+import { ReactNode } from "react"
 import { ReduxProvider, ReduxPersistGate } from "@/redux/reduxProvider"
 import Client from "@/app/client"
 import MswGerator from "@/mocks/MswGerator"
@@ -15,7 +16,7 @@ function Footer() {
   return <footer>푸터</footer>
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="ko">
       <body>

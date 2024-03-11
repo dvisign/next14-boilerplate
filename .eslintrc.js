@@ -1,4 +1,4 @@
-const { nextLintConfig } = require("ibj/cjs")
+const { nextLintConfig } = require("ibj/eslint-config")
 const { resolve } = require("path")
 
 module.exports = {
