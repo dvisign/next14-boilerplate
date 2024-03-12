@@ -2,15 +2,11 @@
 import { ReactNode, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { useAppSelector } from "@/redux/store"
-import { Buttons, ButtonTypes } from "@dvisign/ibj-packages"
+import { Buttons } from "@dvisign/ibj-packages"
 
 function Client({ children }: { children: ReactNode }) {
   const user = useAppSelector(state => state.user)
   const router = useRouter()
-  const test: ButtonTypes = {
-    children: "??",
-  }
-  console.log(test)
   useEffect(() => {
     if (!user.id && !user.name) router.push("/")
   }, [user])

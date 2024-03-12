@@ -14,8 +14,6 @@ npm install
 // next start & msw mocking csr start
 npm run dev
 
-// story book
-npm run stroybook
 ```
 
 ## 아토믹 디자인 패턴
@@ -78,6 +76,5 @@ my-app
     │   ├── slice
     │   ├── reduxProvider.tsx
     │   └── store.ts
-    ├── stories
     └── types
 ```

@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const setTimer = 500
-let timer = null
+let timer: ReturnType<typeof setTimeout> | undefined = undefined
 let throttled = false
 const setURL = (config, api = "") => {
   console.log(api)
@@ -100,7 +100,10 @@ throttleApiService.interceptors.response.use(
 const debounceApiService = axios.create({ ...setBaseOptions() })
 debounceApiService.interceptors.request.use(
   async config => {
-    clearTimeout(timer)
+    // `timer`가 `null`이 아닌 경우에만 `clearTimeout` 호출
+    if (timer !== null) {
+      clearTimeout(timer)
+    }
     return new Promise(resolve => {
       timer = setTimeout(() => {
         resolve(setURL(config))
