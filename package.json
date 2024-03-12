@@ -9,14 +9,15 @@
     "start": "next start",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "ts": "tsc --showConfig"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.23.9",
-    "@dvisign/ibj-packages": "^1.0.4",
+    "@dvisign/ibj-config": "^0.0.3",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/base": "^5.0.0-beta.34",
@@ -30,7 +31,6 @@
     "clsx": "^2.1.0",
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.1.0",
-    "ibj": "file:./dist",
     "lodash": "^4.17.21",
     "next": "^14.0.4",
     "react": "^18.2.0",

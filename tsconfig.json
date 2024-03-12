@@ -1,4 +1,5 @@
 {
+  "extends": "@dvisign/ibj-config/next-config.json",
   "compilerOptions": {
     "target": "es5",
     "lib": [

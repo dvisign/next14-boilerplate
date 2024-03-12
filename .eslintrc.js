@@ -1,4 +1,4 @@
-const { nextLintConfig } = require("ibj/eslint-config")
+const { nextLintConfig } = require("@dvisign/ibj-config")
 const { resolve } = require("path")
 
 module.exports = {
@@ -13,6 +13,9 @@ module.exports = {
     es2021: true, // ES2021 문법 지원 활성화
   },
   settings: {
+    react: {
+      version: "detect",
+    },
     "import/resolver": {
       typescript: {
         alwaysTryTypes: true,
@@ -20,4 +23,5 @@ module.exports = {
       },
     },
   },
+  ignorePatterns: ["next-env.d.ts"],
 }
