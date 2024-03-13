@@ -1,7 +1,6 @@
 import { memo, useState } from "react"
 import { clsx } from "clsx"
-import Label from "@/components/atoms/forms/TextLabel"
-import TextInput from "@/atoms/forms/TextInput"
+import { TextLabel, TextInput } from "@dvisign/ibj-packages"
 import styles from "./TextInputMol.module.scss"
 import { TextInputMolTypes } from "./TextInputMol.types"
 
@@ -11,7 +10,7 @@ function TextInputMol({
   type = "text",
   label = "",
   iconComponent = null,
-  onChange = () => null,
+  onChange = () => {},
   value = "",
   className = "",
   ...props
@@ -21,7 +20,7 @@ function TextInputMol({
   const wrapperClass = clsx(styles.textInputMoleStyle, { focused: focused }, { disabled })
   return (
     <div className={clsx(styles.textWrapperMoleStyle, className)} {...props}>
-      {label && <Label label={label} htmlFor={id ? `${id}Input` : ""} />}
+      {label && <TextLabel label={label} htmlFor={id ? `${id}Input` : ""} />}
       <div className={wrapperClass} style={{ backgroundColor: disabled ? disabledColor : "#fff" }}>
         {iconComponent && <span className={styles.iconStyle}>{iconComponent}</span>}
         <TextInput
