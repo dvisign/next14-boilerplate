@@ -2,7 +2,6 @@
 import { ReactNode, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { useAppSelector } from "@/redux/store"
-import { Buttons } from "@dvisign/ibj-packages"
 
 function Client({ children }: { children: ReactNode }) {
   const user = useAppSelector(state => state.user)
@@ -14,7 +13,6 @@ function Client({ children }: { children: ReactNode }) {
   if (!user.name || !user.id)
     return (
       <>
-        <Buttons>??</Buttons>
         <div>{children}</div>
       </>
     )

@@ -15,7 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.23.9",
-    "@dvisign/ibj-packages": "^1.2.4",
+    "@dvisign/ibj-packages": "^1.2.5",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/base": "^5.0.0-beta.34",
